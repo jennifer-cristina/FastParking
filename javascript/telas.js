@@ -4,46 +4,49 @@ const criarAside = () => {
     const card = document.querySelector('aside')
     card.classList.add('aside')
     card.innerHTML = `
-        <div class="logo">
-            <img src="../IMGs/image 12.png" alt="">
-        </div>
+    <div class="logo">
+        <img src="../IMGs/image 12.png" alt="">
+    </div>
         <div class="menu">
             <ul>
                 <li>
+                    <a href="">
+                    <img src="../IMGs/cadastrar.png" alt="">
+                    </a>
+                    <span>CLiente</span>
+                </li>
+                
+                <li>
+                    <img src="../IMGs/pesquisar.png" alt="">
+                    <span>Veículos</span>
+                </li>
+                <li>
                     <a href="./entradaVeiculos.html">
                     <img src="../IMGs/cadastrar.png" alt="">
                     </a>
+                    <span>Entrada</span>
                 </li>
-                <span>CLiente</span>
+                
                 <li>
                     <img src="../IMGs/pesquisar.png" alt="">
+                    <span>Pesquisa</span>
                 </li>
-                <span>Veículos</span>
-                <li>
-                <li>
-                    <a href="./entradaVeiculos.html">
-                    <img src="../IMGs/cadastrar.png" alt="">
-                    </a>
-                </li>
-                <span>Entrada</span>
-                <li>
-                    <img src="../IMGs/pesquisar.png" alt="">
-                </li>
-                <span>Pesquisa</span>
+                
                 <li>
                     <a href="./gestaoDeVagas.html">
                         <img src="../IMGs/vagas.png" alt="">
                     </a>
+                    <span>Vagas</span>
                 </li>
-                <span>Vagas</span>
+                
                 <li>
                     <img src="../IMGs/relatórios.png" alt="">
+                    <span>Relatórios</span>
                 </li>
-                <span>Relatórios</span>
-                <li>
-                    <img src="../IMGs/sair (3) 1.png" alt="">
-                </li>
+                
+                    
             </ul>
+            <img src="../IMGs/sair (3) 1.png" alt="">
         </div>
     </div>
     

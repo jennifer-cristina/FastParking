@@ -1,20 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../javascript/telas.js" defer></script>
-    <link rel="stylesheet" href="../CSS/aside.css">
-    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/aside.css" />
+    <link rel="stylesheet" href="../CSS/reset.css" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/main.css" />
+
     <title>Document</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <header>
-        
+      <h1>Gestão de Vagas</h1>
     </header>
-    <aside>
-        
-    </aside>
-</body>
+    <aside></aside>
+    <main>
+      <div class="entrada">
+        <form action="" class="form">
+          <input type="text" placeholder="Placa do veículo" />
+          <input type="text" placeholder="Nome do Cliente" />
+          <select name="vagaVeiculo" id="" aria-placeholder="Seleciona a vaga do veículo">
+            <option value="">Selecione um veículo</option>
+          </select>
+
+          <select name="data" id="" aria-placeholder="Data de Entrada">
+            <option value="">Selecione uma Data</option>
+          </select>
+        </form>
+
+        <div class="enviar">
+          <input type="submit" />
+        </div>
+
+        <table class="vagas">
+          <tbody>
+            <tr>
+              <td>
+                <h3>Vagas Dísponiveis</h3>
+              </td>
+            </tr>
+            <tr>
+              <td>Grande Porte</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>Médio Porte</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>Pequeno Porte</td>
+              <td>30</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="ultimoVeiculo">
+        <table class="ultimo">
+          <thead>
+            <tr>
+              <td>Último veículo cadastrado</td>
+            </tr>
+            <tr>
+              <td>Nome do Cliente</td>
+              <td>Placa do veículo</td>
+              <td>Data Entrada</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="resultadoUltimoVeiculo">
+              <td>João Gabriel</td>
+              <td>CHE-2025</td>
+              <td>25/04/2022 23:00</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>  
+    </main>
+  </body>
 </html>

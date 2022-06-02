@@ -1,0 +1,64 @@
+:root {
+    --cor-Principal: #003C8F;
+    --cor-Secundaria: #1565C0;
+    --amarelo: #FFAB40;
+    --branco: #F5EEEE;
+  
+    --font-family: 'Poppins', sans-serif;
+  }
+
+main{
+    background-color: bisque;
+    grid-area: main;
+}
+
+h1{
+    font-family: var(--font-family);
+}
+
+main .entrada{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+
+main .vagas{
+    background-color: var(--amarelo);
+}
+
+table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-Secundaria);
+}
+
+table tr{
+    width: 200px;
+
+}
+
+.ultimo{
+    width: 100%;
+    user-select: none;
+    text-align: left;
+}
+
+.ultimo th{
+    height: 50px;
+    background-color: var(--primary-color);
+    padding-left: 20px;
+    font-size: 1.2rem;    
+}
+.ultimo td{
+    height: 50px;
+    padding-left: 20px;
+}
+
+.ultimo th:last-child,
+.ultimo td:last-child{
+    padding: 0;
+    min-width: 140px;
+    text-align: center;
+}
