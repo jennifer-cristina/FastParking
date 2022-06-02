@@ -9,43 +9,41 @@
     <link rel="stylesheet" href="../CSS/clientes/button.css">
     <link rel="stylesheet" href="../CSS/clientes/modal-clientes.css">
     <script src="../javascript/veiculos/app.js" defer type="module"></script>
-    <title>Cadastro de Clientes</title>
+    <title>Cadastro de Veículos</title>
 </head>
 <body>
     <aside></aside>
     <header>
-        <h1>Cadastro de Clientes</h1>
+        <h1>Cadastro de Veículos</h1>
     </header>
     <main>
 
-        <button type="button" class="button blue" id="cadastrarCliente">Cadastrar Cliente</button>
+        <button type="button" class="button blue" id="cadastrarVeiculo">Cadastrar Veículo</button>
         <table class="titles">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>Celular</th>
-                    <th>Sexo</th>
+                    <th>Placa</th>
+                    <th>Cor</th>
+                    <th>Responsável</th>
                     <th>Ação</th>
                 </tr>
             </thead>
-            <tbody id="clientes-container">
+            <tbody id="veiculos-container">
             </tbody>
         </table>
 
         <div class="modal" id="modal">
             <div class="modal-content">
                 <header class="modal-header">
-                    <h2>Novo Cliente</h2>
+                    <h2>Novo Veículo</h2>
                     <span class="modal-close" id="modalClose">&#10006;</span>
                 </header>
                 <form class="modal-form" id="modal-form">
                     <div class="modal-field-container">
 
-                        <input type="text" class="modal-field" placeholder="Nome do Cliente" id="nome" required>
-                        <input type="text" class="modal-field" placeholder="CPF do Cliente" id="cpf" required>
-                        <input type="text" class="modal-field" placeholder="Celular do Cliente" id="celular" pattern="^\(?[0-9]{2}\)? ?[0-9]{5}-?[0-9]{4}$">
-                        <select name="sexo" id="sexo" ></select>
+                        <input type="text" class="modal-field" placeholder="Placa do Veículo" id="placa" required>
+                        <select name="cor" id="cor" ></select>
+                        <select name="responsavel" id="responsavel"></select>
             
                     </div>
                 </form>

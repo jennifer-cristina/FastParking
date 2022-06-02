@@ -18,14 +18,20 @@
 
 .button.blue{
     background-color: var(--amarelo);
+    color: #fff;
+    font-weight: bold;
 }
 
 button.green{
     background-color: #13CE66;
+    color: #fff;
+    font-weight: bold;
 }
 
 button.red{
     background-color: #FF4949;
+    color: #fff;
+    font-weight: bold;
 }
 
 .button:hover{

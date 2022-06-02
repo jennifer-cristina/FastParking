@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../javascript/telas.js" defer></script>
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/clientes/cadastroClientes.css">
+    <link rel="stylesheet" href="../CSS/clientes/button.css">
+    <link rel="stylesheet" href="../CSS/clientes/modal-clientes.css">
+    <script src="../javascript/veiculos/app.js" defer type="module"></script>
+    <title>Cadastro de Vagas</title>
+</head>
+<body>
+    <aside></aside>
+    <header>
+        <h1>Cadastro de Vagas</h1>
+    </header>
+    <main>
+       
+        <form class="modal-form" id="modal-form">
+            <div class="modal-field-container">
+
+                <input type="text" class="modal-field" placeholder="Placa do Veículo" id="placa" required>
+                <select name="cor" id="cor" ></select>
+                <select name="responsavel" id="responsavel"></select>
+            
+            </div>
+        </form>
+
+        <footer class="modal-footer">
+            <button class="button green" id="salvar">Salvar</button>             
+        </footer>
+       
+    </main>
+    
+    
+</body>
+</html>

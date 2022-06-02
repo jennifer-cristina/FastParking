@@ -60,7 +60,7 @@ body{
 header{
     background-color: var(--cor-Principal);
     grid-area: header;
-    color: var(--branco);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
