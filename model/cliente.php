@@ -136,7 +136,7 @@ function updateCliente($dadosCliente)
                 cpf         = '" . $dadosCliente['cpf'] . "', 
                 cnh         = '" . $dadosCliente['cnh'] . "', 
                 idSexo      = '" . $dadosCliente['idSexo'] . "'
-            where id        =" . $dadosCliente['id'];
+            where id        = " . $dadosCliente['id'];
 
     if (mysqli_query($conexao, $sql)) {
 

@@ -104,9 +104,6 @@ function atualizarCliente($dadosCliente)
 
     if (!empty($dadosCliente)) {
 
-        var_dump($dadosCliente);
-        die;
-
         if (!empty($dadosCliente[0]['nome']) && !empty($dadosCliente[0]['cpf']) && !empty($dadosCliente[0]['idSexo'])) {
 
             if (!empty($idCliente) && $idCliente != 0 && is_numeric($idCliente)) {
@@ -123,6 +120,8 @@ function atualizarCliente($dadosCliente)
                 require_once(SRC . './model/cliente.php');
 
                 if (updateCliente($arrayDados)) {
+                    return true;
+
                 } else
                     return array(
                         'idErro'  => 1,

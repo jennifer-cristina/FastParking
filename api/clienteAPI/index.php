@@ -206,7 +206,7 @@ $app->post('/cliente', function ($request, $response, $args) {
 });
 
 // EndPoint: requisição para atualizar um cliente
-$app->put('/cliente/{id}', function ($request, $response, $args) {
+$app->post('/cliente/{id}', function ($request, $response, $args) {
 
     // Verifica se o id não esta vazio e se é um número
     if (is_numeric($args['id'])) {
@@ -243,7 +243,7 @@ $app->put('/cliente/{id}', function ($request, $response, $args) {
 
                         return $response->withStatus(201)
                             ->withHeader('Content-Type', 'application/json')
-                            ->write('{"message": "Registro inserido com sucesso."}');
+                            ->write('{"message": "Registro atualizado com sucesso."}');
                     } elseif (is_array($resposta) && $resposta['idErro']) {
 
                         // Cria o JSON dos dados do erro
