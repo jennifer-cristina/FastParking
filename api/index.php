@@ -3,7 +3,7 @@
 /*****************************************************************************
  *  Objetivo: Arquivo principal da API que irá receber a URL requisitada
  *  e redirecionar para as APIs(router)
- *  Data: 19/05/2022
+ *  Data: 02/06/2022
  *  Autor: Jennifer Cristina
  *  Versão: 1.0
  *****************************************************************************/
@@ -26,11 +26,11 @@ $urlHTTP = (string) $_GET['url'];
 // Converte a url requisitada em um array para dividir as opções de busca, que é separa 
 $url = explode('/', $urlHTTP);
 
-// Verifica qual API será encaminhada a requisição (contatos, estados, etc)
+// Verifica qual API será encaminhada a requisição (cliente, estados, etc)
 switch (strtoupper($url[0])) {
-    case 'CONTATOS':
+    case 'CLIENTE':
 
-        require_once('contatosAPI/index.php');
+        require_once('clienteAPI/index.php');
         break;
 
     case 'ESTADOS':
