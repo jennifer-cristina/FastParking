@@ -1,0 +1,62 @@
+:root {
+    --cor-Principal: #003C8F;
+    --cor-Secundaria: #1565C0;
+    --amarelo: #FFAB40;
+    font-family: 'Poppins', sans-serif;
+}  
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: url("../IMGs/estacionamento.png") no-repeat fixed;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+
+#button-login {
+    width: 200px;
+    height: 80px;
+    cursor: pointer;
+    background-color:var(--cor-Secundaria);
+    border: none;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    transition: .2s;
+}
+
+#button-login:hover {
+    background-color: var(--amarelo);
+}
+footer {
+    height: 300px;
+    width: 600px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.relogio {
+    gap: 50px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 8rem;
+}
