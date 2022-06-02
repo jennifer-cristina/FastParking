@@ -1,0 +1,24 @@
+
+aside{
+    background-color: #003C8F;
+    width: 250px;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    position: fixed;
+}
+
+aside .menu ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+li img{
+    height: 70px;
+}
