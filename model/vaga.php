@@ -31,7 +31,7 @@
             $statusResposta = true;
     }
 
-    fecharConexaoMysql();
+    fecharConexaoMysql($conexao);
 
     return $statusResposta;
 
@@ -52,12 +52,3 @@
  function selectByIdVaga(){
 
  }
-
-
-
-
-
-
-
-
-?>

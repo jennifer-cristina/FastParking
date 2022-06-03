@@ -21,7 +21,7 @@
                 require_once('../controller/controllerVaga.php');
 
                 //Chama a função da controller para inserir os dados
-                $resposta = inserirVagas($arrayDados);
+                $resposta = inserirVaga($arrayDados);
 
                 if (is_bool($resposta) && $resposta == true) {
                     return $response->withStatus(201)
@@ -43,5 +43,3 @@
     });
 
     $app->run();
-
-?>
