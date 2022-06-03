@@ -26,14 +26,22 @@ $urlHTTP = (string) $_GET['url'];
 // Converte a url requisitada em um array para dividir as opções de busca, que é separa 
 $url = explode('/', $urlHTTP);
 
-// Verifica qual API será encaminhada a requisição (cliente, estados, etc)
+// Verifica qual API será encaminhada a requisição (cliente, telefone, etc)
 switch (strtoupper($url[0])) {
+    
     case 'CLIENTE':
-
         require_once('clienteAPI/index.php');
         break;
 
-    case 'ESTADOS':
-        require_once('estadosAPI/index.php');
+    case 'TELEFONE':
+        require_once('telefoneAPI/index.php');
+        break;
+
+    case 'VEICULO':
+        require_once('veiculoAPI/index.php');
+        break;
+
+    case 'CONTROLE':
+        require_once('controleAPI/index.php');
         break;
 }
