@@ -35,7 +35,7 @@ $app->get('/bloco', function ($request, $response, $args) {
 });
 
 //endpoit para pegar o bloco por id
-$app->get('/bloco{id}', function ($request, $response, $args) {
+$app->get('/bloco/{id}', function ($request, $response, $args) {
    //recebe o id do registro que deverá ser retornado pela api, ele está chegando pela váriavel criada no endpoint
    $id = $args['id'];
 

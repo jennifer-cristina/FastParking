@@ -35,6 +35,6 @@ switch (strtoupper($url[0])) {
         require_once('blocoAPI/index.php');
         break;
     case 'TIPOVAGA':
-        require_once('tipovagaAPI/index.php');
+        require_once('tipoVagaAPI/index.php');
         break;
 }

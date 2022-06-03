@@ -1,35 +1,30 @@
 <?php
 
 /*****************************************************************
- * Objetivo: Arquivo responsável pela manipulação de dados blocos
+ * Objetivo: Arquivo responsável pela manipulação de dados tipoVaga
  * Autor: Laise 
- * Data:02/06/2022 
+ * Data:03/06/2022 
  * Versão: 1.0          
  ****************************************************************/
 
 
-   //Importe do arquivo que vai buscar os dados no BD
-   require_once(SRC . '/model/bloco.php');
+//Importe do arquivo que vai buscar os dados no BD
+require_once(SRC . '/model/tipoVaga.php');
 
-function listarBloco()
+function listarTipoVaga()
 {
-   
- 
-
-   //Chama a função que vai buscar os dados no BD
-   $dados = selectAllBlocos();
-
+   $dados = selectAllTipoVaga();
    if (!empty($dados))
       return $dados;
    else
       return false;
 }
 
-function buscarBloco($id)
+function buscarTipoVaga($id)
 {
    if ($id != 0 && !empty($id) && is_numeric($id)) {
       //Chama a função na model que vai buscar no BD
-      $dados = selectByIdBloco($id);
+      $dados = selectByIdTipoVaga($id);
 
       //Valida se existem dados para serem devolvidos
       if (!empty($dados))
