@@ -17,7 +17,9 @@ const criarAside = () => {
                 </li>
                 
                 <li>
+                    <a href="">
                     <img src="../IMGs/pesquisar.png" alt="">
+                    </a>
                     <span>Veículos</span>
                 </li>
                 <li>
@@ -28,7 +30,9 @@ const criarAside = () => {
                 </li>
                 
                 <li>
+                    <a href="">
                     <img src="../IMGs/pesquisar.png" alt="">
+                    </a>
                     <span>Pesquisa</span>
                 </li>
                 
@@ -40,14 +44,14 @@ const criarAside = () => {
                 </li>
                 
                 <li>
+                    <a href="">
                     <img src="../IMGs/relatórios.png" alt="">
+                    </a>
                     <span>Relatórios</span>
                 </li>
-                
-                    
             </ul>
-            <img src="../IMGs/sair (3) 1.png" alt="">
         </div>
+        <img src="../IMGs/sair (3) 1.png" alt="">
     </div>
     
     `

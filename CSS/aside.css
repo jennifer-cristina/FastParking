@@ -11,33 +11,40 @@ aside{
     background-color: var(--cor-Principal);
     grid-area: aside;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     color: var(--branco);
     flex-direction: column;
     font-family: var(--font-family);
+    padding: 30px;
 }
 
-aside .menu ul{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-
+.menu{
+    margin: auto;
 }
 
 aside .menu ul li{
     display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 50px;
+}
+
+aside .menu ul {
+    display: flex;
     flex-direction: column;
+    margin: auto;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: center;
 }
 
 li img{
-    height: 70px;
+    height: 50px;
+    width: 50px;
 }
 
 .logo img{
     width: 180px;
-    margin-top: 20px;
 }

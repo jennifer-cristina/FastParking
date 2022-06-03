@@ -19,29 +19,58 @@
     </header>
     <aside></aside>
     <main>
-      <div class="entrada">
-        <form action="" class="form">
-          <input type="text" placeholder="Placa do veículo" />
-          <input type="text" placeholder="Nome do Cliente" />
-          <select name="vagaVeiculo" id="" aria-placeholder="Seleciona a vaga do veículo">
-            <option value="">Selecione um veículo</option>
-          </select>
+      <section class="entrada">
+        <div class="acoes">
+          <form action="" class="form">
 
-          <select name="data" id="" aria-placeholder="Data de Entrada">
-            <option value="">Selecione uma Data</option>
-          </select>
-        </form>
-
-        <div class="enviar">
-          <input type="submit" />
+            <div class="campos">
+              <div class="cadastroInformacoes">
+                <label>Nome do Cliente</label>
+              </div>
+              <div class="entradaDeDados">
+                <input type="text" placeholder="Nome do Cliente" />
+              </div>
+            </div>
+            <div class="campos">
+              <div class="cadastroInformacoes">
+                <label>Placa do Veículo</label>
+              </div>
+              <div class="entradaDeDados">
+                <input type="text" placeholder="Placa do veículo" />
+              </div>
+            </div>
+            <div class="campos">
+              <div class="cadastroInformacoes">
+                <label>Veículo</label>
+              </div>
+              <div class="entradaDeDados">
+                <select name="vagaVeiculo" id="">
+                  <option value="">Selecione um veículo</option>
+                </select>
+              </div>
+            </div>
+            <div class="campos">
+              <div class="cadastroInformacoes">
+                <label>Entrada</label>
+              </div>
+              <div class="entradaDeDados">
+                <select name="data" id="">
+                  <option value="">Selecione uma Data</option>
+                </select>
+              </div>
+            </div>
+          </form>
+          <div class="enviar">
+            <input type="submit" />
+          </div>
         </div>
 
         <table class="vagas">
           <tbody>
             <tr>
-              <td>
+              <th>
                 <h3>Vagas Dísponiveis</h3>
-              </td>
+              </th>
             </tr>
             <tr>
               <td>Grande Porte</td>
@@ -57,21 +86,21 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </section>
 
       <section class="ultimoVeiculo">
         <table class="ultimo">
-          <thead>
-            <tr>
-              <td>Último veículo cadastrado</td>
-            </tr>
-            <tr>
-              <td>Nome do Cliente</td>
-              <td>Placa do veículo</td>
-              <td>Data Entrada</td>
-            </tr>
-          </thead>
           <tbody>
+            <tr>
+              <td><h3 class="tituloUltimo">Último veículo cadastrado</h3></td>
+            </tr>
+          </tbody>
+          <thead class="infoClients">
+              <th>Nome do Cliente</th>
+              <th>Placa do veículo</th>
+              <th>Data Entrada</th>
+          </thead>
+          <tbody id="clientsVeiculos" class="clientsVeiculos">
             <tr class="resultadoUltimoVeiculo">
               <td>João Gabriel</td>
               <td>CHE-2025</td>
