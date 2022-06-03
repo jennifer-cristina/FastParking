@@ -155,7 +155,7 @@ $app->get('/veiculo', function ($request, $response, $args) {
 // });
 
 // EndPoint: requisição para listar veiculo pelo placa
-$app->get('/veiculo/{placa}', function ($request, $response, $args) {
+$app->get('/veiculo/placa/{placa}', function ($request, $response, $args) {
 
     // Recebe o numero da placa do registro que devrá ser retornado pela API, essa placa esta chegando pela variael criada no endpoint
     $placa = $args['placa'];
