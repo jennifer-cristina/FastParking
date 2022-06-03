@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../javascript/telas.js" defer></script>
     <link rel="stylesheet" href="../CSS/reset.css">
-    <link rel="stylesheet" href="../CSS/clientes/cadastroClientes.css">
+    <link rel="stylesheet" href="../CSS/clientes/cadastroVagas.css">
     <link rel="stylesheet" href="../CSS/clientes/button.css">
     <link rel="stylesheet" href="../CSS/clientes/modal-clientes.css">
-    <script src="../javascript/veiculos/app.js" defer type="module"></script>
+    <script src="../javascript/vagas/app.js" defer type="module"></script>
     <title>Cadastro de Vagas</title>
 </head>
 <body>
@@ -18,21 +18,102 @@
     </header>
     <main>
        
-        <form class="modal-form" id="modal-form">
-            <div class="modal-field-container">
+        <button type="button" class="button blue" id="cadastrarVaga">Cadastrar Vaga</button>
+        <table class="titles">
+            <thead>
+                <tr>
+                    <th>N° Vaga</th>
+                    <th>Bloco</th>
+                    <th>Preferencial</th>
+                    <th>Tipo</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="vagas-container">
+                <tr>
+                    <td>1</td>
+                    <td>A1</td>
+                    <td>SIM</td>
+                    <td>Grande Porte</td>
+                </tr>
+            </tbody>
+        </table>
 
-                <input type="text" class="modal-field" placeholder="Placa do Veículo" id="placa" required>
-                <select name="cor" id="cor" ></select>
-                <select name="responsavel" id="responsavel"></select>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Nova Vaga</h2>
+                    <span class="modal-close" id="modalClose">&#10006;</span>
+                </header>
+                <form class="modal-form" id="modal-form">
+                    <div class="modal-field-container">
+
+                        <select name="bloco" id="bloco"></select>
+                        <div class="campos">
+                            <div class="campos-perguntas">Preferencial:
+                                <input type="checkbox" name="preferencial" id="preferencial">
+                            </div>
+                        </div>
+                        <select name="tipo" id="tipo" ></select>
             
+                    </div>
+                </form>
+                <footer class="modal-footer">
+                    <button class="button green" id="salvar">Salvar</button>
+                    <button class="button blue" id="cancelar">Cancelar</button>
+                </footer>
             </div>
-        </form>
+        </div>
 
-        <footer class="modal-footer">
-            <button class="button green" id="salvar">Salvar</button>             
-        </footer>
+        <div class="exibir">
+
+            <div class="container-bloco">
+                <div class="bloco">
+                    <h2>Total</h2>
+                </div>
+    
+                <div class="bloco">
+                    <h2>A1</h2>
+                </div>
+    
+                <div class="bloco">
+                    <h2>B2</h2>
+                </div>
+    
+                <div class="bloco">
+                    <h2>C3</h2>
+                </div>
+                
+            </div>
+    
+            <div class="container-capacidade">
+    
+                <div class="capacidade">
+                    <h2 class="text-capacidade">
+                        60 VAGAS (TOTAL)
+                    </h2>
+                </div>
+    
+                <div class="capacidade">
+                    <h2 class="text-capacidade">
+                        20 VAGAS DISPONIVEIS
+                    </h2>
+                </div>
+    
+                <div class="capacidade">
+                    <h2 class="text-capacidade">
+                        40 VAGAS OCUPADAS
+                    </h2>
+                </div>
+    
+            </div>
+
+        </div>
+        
        
     </main>
+
+
     
     
 </body>

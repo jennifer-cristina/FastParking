@@ -48,9 +48,12 @@ const criarAside = () => {
                
             </ul>
 
-            <img src="../IMGs/sair (3) 1.png" alt="">
+            
             
         </div>
+        
+        <img src="../IMGs/sair (3) 1.png" alt="">
+        
     </div>
     
     `
