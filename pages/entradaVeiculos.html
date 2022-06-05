@@ -23,7 +23,7 @@
         <div class="acoes">
           <form action="" class="form">
 
-            <div class="campos">
+            <div class="campos cliente">
               <div class="cadastroInformacoes">
                 <label>Nome do Cliente</label>
               </div>
@@ -31,7 +31,7 @@
                 <input type="text" placeholder="Nome do Cliente" />
               </div>
             </div>
-            <div class="campos">
+            <div class="campos veiculo">
               <div class="cadastroInformacoes">
                 <label>Placa do Veículo</label>
               </div>
@@ -39,17 +39,17 @@
                 <input type="text" placeholder="Placa do veículo" />
               </div>
             </div>
-            <div class="campos">
+            <div class="campos vaga">
               <div class="cadastroInformacoes">
-                <label>Veículo</label>
+                <label>Vaga do veículo</label>
               </div>
               <div class="entradaDeDados">
                 <select name="vagaVeiculo" id="">
-                  <option value="">Selecione um veículo</option>
+                  <option value="">Selecione a vaga do veículo</option>
                 </select>
               </div>
             </div>
-            <div class="campos">
+            <div class="campos data">
               <div class="cadastroInformacoes">
                 <label>Entrada</label>
               </div>
@@ -65,36 +65,37 @@
           </div>
         </div>
 
-        <table class="vagas">
-          <tbody>
-            <tr>
-              <th>
-                <h3>Vagas Dísponiveis</h3>
-              </th>
-            </tr>
-            <tr>
-              <td>Grande Porte</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <td>Médio Porte</td>
-              <td>30</td>
-            </tr>
-            <tr>
-              <td>Pequeno Porte</td>
-              <td>30</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="vagas">
+          <table>
+            <tbody>
+              <tr>
+                <th>
+                  <h3 class="titulo">Vagas Dísponiveis</h3>
+                  <td>90</td>
+                </th>
+              </tr>
+              <tr>
+                <th>Grande Porte</th>
+                <td>30</td>
+              </tr>
+              <tr>
+                <th>Médio Porte</th>
+                <td>30</td>
+              </tr>
+              <tr>
+                <th>Pequeno Porte</th>
+                <td>30</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section class="ultimoVeiculo">
+        <div class="tituloInfo">
+          <h3>Último veículo cadastrado</h3>
+        </div>
         <table class="ultimo">
-          <tbody>
-            <tr>
-              <td><h3 class="tituloUltimo">Último veículo cadastrado</h3></td>
-            </tr>
-          </tbody>
           <thead class="infoClients">
             <tr>
               <th>Nome do Cliente</th>

@@ -18,17 +18,28 @@ h1{
 }
 
 main .entrada{
+    margin: 3rem auto;
+    background-color: var(--amarelo);
     flex-grow: 1;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    box-shadow: 2px 2px 10px black;
     width: 90%;
-    box-shadow: 2px 2px 10px var(--shadow-color);
-    gap: 20px;
 }
 
 main .acoes{
-    flex-grow: 2;
-    align-items: flex-start;
+    width: 70%;
+    display:flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+main .acoes form{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: var(--font-family);
+    font-size: 1.2rem;
 }
 
 main .campos{
@@ -49,6 +60,7 @@ main .entradaDeDados{
 
 main .entradaDeDados input, main .entradaDeDados select{
     width: 100%;
+    font-size: 1.1rem;
 }
 
 main .enviar input{
@@ -60,28 +72,57 @@ main .enviar input{
     padding: 10px;
     background-color: var(--amarelo);
     font-family: var(--font-family);
+    cursor: pointer;
+    transition: 1s;
+}
+
+main .enviar input:hover{
+    background-color: var(--cor-Principal);
+    color: var(--branco);
 }
 
 main .vagas{
     background-color: var(--amarelo);
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-table{
+main .vagas .titulo{
+    font-weight: bolder;
+}
+
+main .vagas tbody{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main .vagas tr{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    background-color: var(--cor-Secundaria);
+    font-family: var(--font-family);
+    font-size: 1.2rem;
 }
 
 .ultimoVeiculo{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 90%;
-    margin: 5vh auto;
-    padding: 50px;
-    box-shadow: 2px 2px 10px var(--shadow-color);
+    margin: 3rem auto;
+    box-shadow: 2px 2px 10px black;
+    background-color: var(--cor-Secundaria); 
+    padding: 20px; 
+}
+
+.ultimoVeiculo table{
+    align-items: center;
+    text-align: center;
 }
 
 .ultimo{
@@ -96,12 +137,10 @@ table{
     height: 50px;
     padding: 20px;
     text-align: center;
-    font-size: 1.2rem;    
-    width: 200px;
-}
-.ultimo td{
-    height: 50px;
-    
+    font-size: 1.3rem;    
+    width: 250px;
+    font-family: var(--font-family);
+    color: var(--branco);
 }
 
 .resultadoUltimoVeiculo td{
@@ -109,10 +148,15 @@ table{
     color: black;
     padding: 20px;
     text-align: center;
-    width: 200px;
+    width: 250px;
+    font-size: 1.3rem;
+    font-family: var(--font-family);
+    height: 50px;
 }
 
-.infoClients, .tituloUltimo{
+.tituloInfo{
     color: var(--branco);
     font-family: var(--font-family);
+    font-size: 1.5rem;
+    font-weight: bold;
 }
