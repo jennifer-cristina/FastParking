@@ -1,20 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../javascript/telas.js" defer></script>
-    <link rel="stylesheet" href="../CSS/aside.css">
-    <link rel="stylesheet" href="../CSS/reset.css">
+    <script src="../entradaVeiculo.js/entradaVeiculo.js" defer></script>
+    <link rel="stylesheet" href="../CSS/aside.css" />
+    <link rel="stylesheet" href="../CSS/reset.css" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/entradaVeiculos.css" />
+
     <title>Document</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <header>
-        
+      <h1>Entrada de veículos</h1>
     </header>
-    <aside>
-        
-    </aside>
-</body>
+    <aside></aside>
+    <main>
+      <section class="entrada">
+        <div class="acoes">
+          <form action="" class="form">
+
+            <div class="campos cliente">
+              <div class="cadastroInformacoes">
+                <label>Nome do Cliente</label>
+              </div>
+              <div class="entradaDeDados">
+                <input type="text" placeholder="Nome do Cliente" id="nomeCliente"/>
+              </div>
+            </div>
+            <div class="campos veiculo">
+              <div class="cadastroInformacoes">
+                <label>Placa do Veículo</label>
+              </div>
+              <div class="entradaDeDados">
+                <input type="text" placeholder="Placa do veículo" id="placa" list="porteVeiculo"/>
+              </div>
+            </div>
+            <div class="campos vaga">
+              <div class="cadastroInformacoes">
+                <label>Vaga do veículo</label>
+              </div>
+              <div class="entradaDeDados">
+                <select name="vagaVeiculo" id="tamanhoVeiculo">
+                  <option value="">Selecione a vaga do veículo</option>
+                </select>
+              </div>
+            </div>
+            <div class="campos data">
+              <div class="cadastroInformacoes">
+                <label>Entrada</label>
+              </div>
+              <div class="entradaDeDados">
+                <select name="data" id="dataEntrada">
+                  <option value="">Selecione uma Data</option>
+                </select>
+              </div>
+            </div>
+          </form>
+          <div class="enviar">
+            <input type="submit" />
+          </div>
+        </div>
+
+        <div class="vagas">
+          <table>
+            <tbody>
+              <tr>
+                <th>
+                  <h3 class="titulo">Vagas Dísponiveis</h3>
+                  <td>90</td>
+                </th>
+              </tr>
+              <tr>
+                <th>Grande Porte</th>
+                <td>30</td>
+              </tr>
+              <tr>
+                <th>Médio Porte</th>
+                <td>30</td>
+              </tr>
+              <tr>
+                <th>Pequeno Porte</th>
+                <td>30</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="ultimoVeiculo">
+        <div class="tituloInfo">
+          <h3>Último veículo cadastrado</h3>
+        </div>
+        <table class="ultimo">
+          <thead class="infoClients">
+            <tr>
+              <th>Nome do Cliente</th>
+              <th>Placa do veículo</th>
+              <th>Data Entrada</th>
+            </tr>
+          </thead>
+          <tbody id="clientsVeiculos" class="clientsVeiculos">
+            <tr class="resultadoUltimoVeiculo">
+              <td>João Gabriel</td>
+              <td>CHE-2025</td>
+              <td>25/04/2022 23:00</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>  
+    </main>
+  </body>
 </html>
