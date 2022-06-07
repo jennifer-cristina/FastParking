@@ -8,7 +8,7 @@
  *************************************************************************************/
 
 // define: 
-define('SRC', $_SERVER['DOCUMENT_ROOT'] . '/Jennifer/FastParking/');
+define('SRC', $_SERVER['DOCUMENT_ROOT'] . '/fastParking/FastParking/');
 
 /****************************FUNÇÕES GLOBAIS PARA O PROJETO****************************** */
 

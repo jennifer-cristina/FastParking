@@ -108,51 +108,51 @@ $app->get('/veiculo', function ($request, $response, $args) {
 });
 
 // EndPoint: requisição para listar veiculo pelo id
-// $app->get('/veiculo/{id}', function ($request, $response, $args) {
+$app->get('/veiculo/{id}', function ($request, $response, $args) {
 
-//     // Recebe o ID do registro que devrá ser retornado pela API, esse ID esta chegando pela variael criada no endpoint
-//     $id = $args['id'];
+    // Recebe o ID do registro que devrá ser retornado pela API, esse ID esta chegando pela variael criada no endpoint
+    $id = $args['id'];
 
-//     require_once('../modulo/config.php');
-//     require_once('../controller/controllerVeiculo.php');
+    require_once('../modulo/config.php');
+    require_once('../controller/controllerVeiculo.php');
 
-//     // Solicita os dados para a controller
-//     if ($dados = buscarVeiculo($id)) {
+    // Solicita os dados para a controller
+    if ($dados = buscarVeiculo($id)) {
 
-//         // valida se existe o id erro e verifica se houve algum tipo de erro no retorno dos dados da controller
-//         if (!isset($dados['idErro'])) {
+        // valida se existe o id erro e verifica se houve algum tipo de erro no retorno dos dados da controller
+        if (!isset($dados['idErro'])) {
 
-//             // Realizar a conversão do array de dados em formato JSON
-//             if ($dadosJSON = createJSON($dados)) {
+            // Realizar a conversão do array de dados em formato JSON
+            if ($dadosJSON = createJSON($dados)) {
 
-//                 // Caso exista dados a serem retornados, informamos o statusCOde 200 e enviamos
-//                 // um JSON com o todos os dados encontrados
-//                 return $response->withStatus(200)
-//                                 ->withHeader('Content-Type', 'application/json')
-//                                 ->write($dadosJSON);
-//             }
-//         } else {
+                // Caso exista dados a serem retornados, informamos o statusCOde 200 e enviamos
+                // um JSON com o todos os dados encontrados
+                return $response->withStatus(200)
+                                ->withHeader('Content-Type', 'application/json')
+                                ->write($dadosJSON);
+            }
+        } else {
 
-//             // Converte para JSON o erro, pois a controller retorna em array
-//             $dadosJSON = createJSON($dados);
+            // Converte para JSON o erro, pois a controller retorna em array
+            $dadosJSON = createJSON($dados);
 
-//             // Retorna um erro que significa que o cliente passou dados errados
-//             return $response->withStatus(404)
-//                             ->withHeader('Content-Type', 'application/json')
-//                             ->write('{"message": "Dados inválidos",
-//                                       "Erro": ' . $dadosJSON . '
-//                                      }');
-//         }
-//     } else {
+            // Retorna um erro que significa que o cliente passou dados errados
+            return $response->withStatus(404)
+                            ->withHeader('Content-Type', 'application/json')
+                            ->write('{"message": "Dados inválidos",
+                                      "Erro": ' . $dadosJSON . '
+                                     }');
+        }
+    } else {
 
-//         // Retorna um statusCode de que significa que a requisição foi aceita, com o
-//         // conteúdo de retorno
-//         return $response->withStatus(404)
-//                         ->withHeader('Content-Type', 'application/json')
-//                         ->write('{"message": "Item não encontrado"}');
-//     }
+        // Retorna um statusCode de que significa que a requisição foi aceita, com o
+        // conteúdo de retorno
+        return $response->withStatus(404)
+                        ->withHeader('Content-Type', 'application/json')
+                        ->write('{"message": "Item não encontrado"}');
+    }
 
-// });
+});
 
 // EndPoint: requisição para listar veiculo pelo placa
 $app->get('/veiculo/placa/{placa}', function ($request, $response, $args) {
