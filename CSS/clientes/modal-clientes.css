@@ -68,18 +68,13 @@
     font-size:1rem;
 }
 
+
 .modal-field-container {
     display: flex;
     flex-direction: column;
     gap: 5px;
     flex-grow: 1;
 }
-
-.modal-field:focus{
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 0 3px var(--primary-color);
-}
-
 
 .modal-footer{
     background-color: inherit;
