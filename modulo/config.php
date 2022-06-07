@@ -2,31 +2,27 @@
 
 /********************************************************************************************
  * Objetivo: Arquivo responsável pela criação de variáveis e constantes do projeto
- * Autor: Jennifer
+ * Autoras: Jennifer e Laise
  * Data: 02/06/2022
  * Versão: 1.0
  *************************************************************************************/
 
 // define: 
-define('SRC', $_SERVER['DOCUMENT_ROOT'] . '/fastParking/FastParking/');
+define('SRC', $_SERVER['DOCUMENT_ROOT'].'/fastParking/FastParking');
 
-/****************************FUNÇÕES GLOBAIS PARA O PROJETO****************************** */
-
-// Função para converter um array em um formato JSON
+//função para converter um array em formato json
 function createJSON($arrayDados)
 {
+    //validação para tratar array sem dados
+    if(!empty($arrayDados)){
+        //json_encode converte o array para json
+        //json_decode faz o inverso
 
-    // Validação para tratar array sem dados
-    if (!empty($arrayDados)) {
-        // Configura o padrão da conversão para formato JSON
+        //configura o padrão da conversão para formato json
         header('Content-Type: application/json');
-        $dadosJSON = json_encode($arrayDados);
 
-        // json_encode(); converte um array para JSON
-        // json_decode(); converte um JSON para array
-
-        return $dadosJSON;
-    } else {
+        return json_encode($arrayDados);
+    }else{
         return false;
     }
 }

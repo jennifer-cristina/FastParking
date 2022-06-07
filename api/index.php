@@ -4,7 +4,7 @@
  *  Objetivo: Arquivo principal da API que irá receber a URL requisitada
  *  e redirecionar para as APIs(router)
  *  Data: 02/06/2022
- *  Autor: Jennifer Cristina
+ *  Autoras: Jennifer e Laise
  *  Versão: 1.0
  *****************************************************************************/
 
@@ -43,5 +43,14 @@ switch (strtoupper($url[0])) {
 
     case 'CONTROLE':
         require_once('controleAPI/index.php');
+        break;
+    case 'VAGA':
+        require_once('vagaAPI/index.php');
+        break;
+    case 'BLOCO':
+        require_once('blocoAPI/index.php');
+        break;
+    case 'TIPOVAGA':
+        require_once('tipoVagaAPI/index.php');
         break;
 }

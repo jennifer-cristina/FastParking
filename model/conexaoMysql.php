@@ -2,9 +2,11 @@
 /*******************************************************
  *  Arquivo para criar a conexão com o banco de dados.
  * 
- *  Jennifer Cristina 02/06/2022
+ *  Jennifer e Laise
+ *  02/06/2022
  *  Versão 1.0
  *****************************************************/
+
 
 const SERVER = 'localhost';
 const USER = 'root';
@@ -30,3 +32,4 @@ const DATABASE = 'dbFastParking';
  }
 
 ?>
+
