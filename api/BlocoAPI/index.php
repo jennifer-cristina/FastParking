@@ -10,13 +10,14 @@ require_once('vendor/autoload.php');
 //Criando um objeto do slim chamado app, para configurar os EndPoint
 $app = new \Slim\App();
 
-//importa do arquivo de configuração
-require_once('../modulo/config.php');
-//importe da controller de contatos, que fará a busca de dados
-require_once('../controller/controllerBloco.php');
-
 //endpoit para pegar todos blocos
 $app->get('/bloco', function ($request, $response, $args) {
+
+   //importa do arquivo de configuração
+   require_once('../modulo/config.php');
+   //importe da controller 
+   require_once('../controller/controllerBloco.php');
+
    //Solicita os dados para a controller
    if ($dados = listarBloco()) {
       //realiza a conversão do array de dados em formato json
@@ -36,6 +37,12 @@ $app->get('/bloco', function ($request, $response, $args) {
 
 //endpoit para pegar o bloco por id
 $app->get('/bloco/{id}', function ($request, $response, $args) {
+
+   //importa do arquivo de configuração
+   require_once('../modulo/config.php');
+   //importe da controller 
+   require_once('../controller/controllerBloco.php');
+
    //recebe o id do registro que deverá ser retornado pela api, ele está chegando pela váriavel criada no endpoint
    $id = $args['id'];
 

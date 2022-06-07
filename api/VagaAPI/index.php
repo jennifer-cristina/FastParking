@@ -5,17 +5,25 @@
  * 
  */
 
+
+
 require_once('vendor/autoload.php');
-//importa do arquivo de configuração
-require_once('../modulo/config.php');
-//importe da controller 
-require_once('../controller/controllerVaga.php');
+
 
 
 //Criando um objeto do slim chamado app, para configurar os EndPoint
 $app = new \Slim\App();
 
+
+
 $app->post('/vaga', function ($request, $response, $args) {
+
+    //importa do arquivo de configuração
+    require_once('../modulo/config.php');
+    //importe da controller 
+    require_once('../controller/controllerVaga.php');
+
+
     $contentTypeHeader = $request->getHeaderLine('Content-Type');
     $contentType = explode(";", $contentTypeHeader);
 
@@ -45,6 +53,11 @@ $app->post('/vaga', function ($request, $response, $args) {
 });
 
 $app->post('/vaga/{id}', function ($request, $response, $args) {
+
+    //importa do arquivo de configuração
+    require_once('../modulo/config.php');
+    //importe da controller 
+    require_once('../controller/controllerVaga.php');
 
     if (is_numeric($args['id'])) {
 
@@ -84,6 +97,11 @@ $app->post('/vaga/{id}', function ($request, $response, $args) {
 
 $app->get('/vaga', function ($request, $response, $args) {
 
+    //importa do arquivo de configuração
+    require_once('../modulo/config.php');
+    //importe da controller 
+    require_once('../controller/controllerVaga.php');
+
     //Solicita os dados para a controller
     if ($dados = listarVaga()) {
         //realiza a conversão do array de dados em formato json
@@ -102,6 +120,12 @@ $app->get('/vaga', function ($request, $response, $args) {
 });
 
 $app->get('/vaga/{id}', function ($request, $response, $args) {
+
+    //importa do arquivo de configuração
+    require_once('../modulo/config.php');
+    //importe da controller 
+    require_once('../controller/controllerVaga.php');
+
     //recebe o id do registro que deverá ser retornado pela api, ele está chegando pela váriavel criada no endpoint
     $id = $args['id'];
 
@@ -135,11 +159,17 @@ $app->get('/vaga/{id}', function ($request, $response, $args) {
 });
 
 $app->delete('/vaga/{id}', function ($request, $response, $args) {
+
+    //importa do arquivo de configuração
+    require_once('../modulo/config.php');
+    //importe da controller 
+    require_once('../controller/controllerVaga.php');
+
     if (is_numeric($args['id'])) {
         //Recebe o id enviado no enpoint através da váriavel id 
         $id = $args['id'];
         $resposta = excluirVaga($id);
-        
+
         //chama a função de excluir contato, encaminhando o id e a foto
         if (is_bool($resposta) && $resposta == true) {
             return $response->withStatus(200)

@@ -52,6 +52,9 @@ function uptadeVaga($dadosVagas)
                     idBloco      = " . $dadosVagas['idBloco'] . "
                 where id=" . $dadosVagas['id'];
 
+    // var_dump($script);
+    // die;
+
     if (mysqli_query($conexao, $script)) {
         if (mysqli_affected_rows($conexao))
             $statusResposta = true;
