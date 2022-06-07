@@ -14,7 +14,7 @@ function insertVaga($dadosVagas)
 {
     $statusResposta = (bool) false;
 
-    $conexao = conexaoMysql();
+    $conexao = conectarMysql();
 
     $script = "insert into tblVaga
                         (statusVaga,
@@ -43,7 +43,7 @@ function uptadeVaga($dadosVagas)
 {
     $statusResposta = (bool) false;
 
-    $conexao = conexaoMysql();
+    $conexao = conectarMysql();
 
     $script = "update tblVaga set
                     statusVaga   = " . $dadosVagas['statusVaga'] . ",
@@ -65,7 +65,7 @@ function uptadeVaga($dadosVagas)
 function deleteVaga($id)
 {
     $statusResposta = (bool) false;
-    $conexao = conexaoMysql();
+    $conexao = conectarMysql();
 
         //script para deletar um resgistro do BD
         $script = "delete from tblVaga where id=".$id;
@@ -86,7 +86,7 @@ function deleteVaga($id)
 function selectAllVaga()
 {
     //Abre a conexão com o BD
-    $conexao = conexaoMysql();
+    $conexao = conectarMysql();
 
     //script para listar todos os dados do BD
     $script = "select * from tblVaga";
@@ -121,7 +121,7 @@ function selectAllVaga()
 function selectByIdVaga($id)
 {
     //Abre a conexão com o BD
-    $conexao = conexaoMysql();
+    $conexao = conectarMysql();
 
     //script para listar o dado do BD
     $script = "select * from tblVaga where id =" . $id;

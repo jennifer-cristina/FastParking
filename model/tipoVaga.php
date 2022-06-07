@@ -13,7 +13,7 @@ function selectAllTipoVaga()
 {
 
    //Abre a conexão com o BD
-   $conexao = conexaoMysql();
+   $conexao = conectarMysql();
 
    //script para listar todos os dados do BD
    $script = "select * from tbltipoVaga"; 
@@ -49,7 +49,7 @@ function selectAllTipoVaga()
 function selectByIdTipoVaga($id)
 {
    //Abre a conexão com o BD
-   $conexao = conexaoMysql();
+   $conexao = conectarMysql();
 
    //script para listar o dado do BD
    $script = "select * from tblTipoVaga where id =" . $id;

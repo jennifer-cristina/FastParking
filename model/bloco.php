@@ -13,7 +13,7 @@ function selectAllBlocos()
 {
 
    //Abre a conexão com o BD
-   $conexao = conexaoMysql();
+   $conexao = conectarMysql();
 
    //script para listar todos os dados do BD
    $script = "select * from tblbloco order by id desc"; /*asc = crescente */
@@ -47,7 +47,7 @@ function selectAllBlocos()
 function selectByIdBloco($id)
 {
    //Abre a conexão com o BD
-   $conexao = conexaoMysql();
+   $conexao = conectarMysql();
 
    //script para listar o dado do BD
    $script = "select * from tblbloco where id =" . $id;
