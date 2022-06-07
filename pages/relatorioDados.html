@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../javascript/telas.js" defer></script>
+    <link rel="stylesheet" href="../CSS/aside.css" />
+    <link rel="stylesheet" href="../CSS/reset.css" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/relatorioDados.css" />
+    <title>Relatório de Dados</title>
+</head>
+<body>
+    <header>
+        <h1>Relatório de Dados</h1>
+    </header>
+    <aside></aside>
+    <main>
+        <section class="rendimentos">
+            <h2>Rendimento por:</h2>
+            <div class="rendimentosOpcoes">
+                <div class="rendimentoData">
+                    <label>Pesquisar por data específica</label>
+                    <div class="datas">
+                        <input type="date" class="data">
+                    </div>
+                    <button type="button">
+                        Buscar
+                    </button>
+                </div>
+                <div class="rendimentoData">
+                    <label>Pesquisar por intervalo de datas</label>
+                        <div class="datas">
+                            <input type="date" class="data">
+                            <p>até</p>
+                            <input type="date" class="data">
+                        </div>
+                    <button type="button">
+                        Buscar
+                    </button>
+                </div>
+            </div> 
+        </section>
+        <section class="relatorio">
+            <div class="infoTotais">
+                <div class="valor">
+                    <h3>Valor Recebido:</h3>
+                    <span id="valorRecebido"></span>
+                </div>
+                <div class="cliente">
+                    <h3>Clientes Totais:</h3>
+                    <span id="valorRecebido"></span>
+                </div>
+            </div>
+            <div class="tblRelatorio">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Placa</th>
+                            <th>Tamanho</th>
+                            <th>Data/Hora chegada</th>
+                            <th>Data/Hora saída</th>
+                            <th>Valor pago</th>
+                        </tr>
+                    </thead>
+                    <tbody id="veiculoCadastrado">
+                        <tr>
+                          <td>João Gabriel</td>
+                          <td>CHE-8888</td>
+                          <td>Grande</td>
+                          <td>25/052002 14:00</td>
+                          <td>25/05/2002 16:00</td>
+                          <td>R$ 18,00</td>
+                        </tr>
+                        <tr>
+                          <td>João Gabriel</td>
+                          <td>CHE-8888</td>
+                          <td>Grande</td>
+                          <td>25/052002 14:00</td>
+                          <td>25/05/2002 16:00</td>
+                          <td>R$ 18,00</td>
+                        </tr>
+                        <tr>
+                          <td>João Gabriel</td>
+                          <td>CHE-8888</td>
+                          <td>Grande</td>
+                          <td>25/052002 14:00</td>
+                          <td>25/05/2002 16:00</td>
+                          <td>R$ 18,00</td>
+                        </tr>
+                        <tr>
+                          <td>João Gabriel</td>
+                          <td>CHE-8888</td>
+                          <td>Grande</td>
+                          <td>25/052002 14:00</td>
+                          <td>25/05/2002 16:00</td>
+                          <td>R$ 18,00</td>
+                        </tr>
+                        <tr>
+                          <td>João Gabriel</td>
+                          <td>CHE-8888</td>
+                          <td>Grande</td>
+                          <td>25/052002 14:00</td>
+                          <td>25/05/2002 16:00</td>
+                          <td>R$ 18,00</td>
+                        </tr>
+                        <tr>
+                          <td>João Gabriel</td>
+                          <td>CHE-8888</td>
+                          <td>Grande</td>
+                          <td>25/052002 14:00</td>
+                          <td>25/05/2002 16:00</td>
+                          <td>R$ 18,00</td>
+                        </tr>
+                        <tr>
+                          <td>João Gabriel</td>
+                          <td>CHE-8888</td>
+                          <td>Grande</td>
+                          <td>25/052002 14:00</td>
+                          <td>25/05/2002 16:00</td>
+                          <td>R$ 18,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

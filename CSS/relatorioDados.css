@@ -1,0 +1,124 @@
+:root {
+    --cor-Principal: #003C8F;
+    --cor-Secundaria: #1565C0;
+    --amarelo: #FFAB40;
+    --branco: #F5EEEE;
+    --cinza: #D9D9D9;
+  
+    --font-family: 'Poppins', sans-serif;
+  }
+
+main .rendimentos{
+    background-color: var(--cor-Secundaria);
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding: 40px;
+    height: auto;
+}
+
+main .rendimentos h2{
+    font-family: var(--font-family);
+    color: var(--branco);
+    font-size: 2rem;
+    
+}
+
+main .rendimentos .rendimentosOpcoes{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+main .rendimentoData{
+    background-color: var(--cinza);
+    width: 350px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.3rem;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+main .rendimentoData label{
+    font-size: 1.1rem;
+    font-family: var(--font-family);
+    font-weight: 700;
+}
+
+main .datas{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 5px;
+}
+
+main .data{
+    padding: 10px 10px 10px;
+    font-family: var(--font-family);
+    font-size: 1.1rem;
+}
+
+main .rendimentoData button{
+    width: 150px;
+    cursor: pointer;
+    padding: 10px;
+    font-family: var(--font-family);
+    background-color: var(--amarelo);
+}
+
+main section.relatorio{
+    background-color: var(--cor-Secundaria);
+    margin: 3rem auto;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+main .infoTotais{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+main .infoTotais .valor, main .infoTotais .cliente{
+    width: 300px;
+    background-color: var(--branco);
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.1rem;
+    font-family: var(--font-family);
+}
+
+main .tblRelatorio{
+    margin: auto;
+}
+
+main .tblRelatorio table{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+main .tblRelatorio thead{
+    font-size: 1.3rem;
+    font-family: var(--font-family);
+    color: var(--branco);
+}
+
+main .tblRelatorio tbody{
+    font-size: 1.3rem;
+    background-color: var(--branco);
+    font-family: var(--font-family);
+}
