@@ -1,3 +1,4 @@
+
 #Ativação das permissões do servidor APACHE nas requisições da API
 
 <IfModule mod_rewrite.c>
