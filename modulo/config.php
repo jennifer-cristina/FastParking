@@ -1,6 +1,6 @@
 <?php
 
-define('SRC', $_SERVER['DOCUMENT_ROOT'].'/Laise/FastParking');
+define('SRC', $_SERVER['DOCUMENT_ROOT'].'/fastParking/FastParking');
 
 //função para converter um array em formato json
 function createJSON($arrayDados)
