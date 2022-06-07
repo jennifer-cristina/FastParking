@@ -1,0 +1,50 @@
+:root {
+    --cor-Principal: #003C8F;
+    --cor-Secundaria: #1565C0;
+    --amarelo: #FFAB40;
+    --branco: #F5EEEE;
+  
+    --font-family: 'Poppins', sans-serif;
+  }
+
+aside{
+    background-color: var(--cor-Principal);
+    grid-area: aside;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: var(--branco);
+    flex-direction: column;
+    font-family: var(--font-family);
+    padding: 30px;
+}
+
+.menu{
+    margin: auto;
+}
+
+aside .menu ul li{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 50px;
+}
+
+aside .menu ul {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: center;
+}
+
+li img{
+    height: 50px;
+    width: 50px;
+}
+
+.logo img{
+    width: 180px;
+}
