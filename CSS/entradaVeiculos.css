@@ -19,7 +19,6 @@ h1{
 
 main .entrada{
     margin: 3rem auto;
-    background-color: var(--amarelo);
     flex-grow: 1;
     display: flex;
     align-items: center;

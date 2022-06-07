@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../javascript/telas.js" defer></script>
+    <script src="../veiculoCadastrado.js/veiculoCadastrado.js" defer></script>
     <link rel="stylesheet" href="../CSS/aside.css" />
     <link rel="stylesheet" href="../CSS/reset.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
@@ -18,11 +19,11 @@
     <aside></aside>
     <main>
       <div class="camposPesquisa">
-        <input type="text" name="" id="" placeholder="Pesquisar Placa" />
+        <input type="text" name="" id="pesquisarPlaca" placeholder="Pesquisar Placa"/>
       </div>
       <section class="veiculos">
-        <table class="tblVeiculos">
-          <thead>
+        <table class="tblVeiculos" id="tblVeiculos">
+          <thead id="veiculoCadastrado">
             <tr>
               <th>Placa</th>
               <th>Cor</th>
@@ -31,7 +32,7 @@
               <th>Entrada</th>
             </tr>
           </thead>
-          <tbody id="veiculoCadastrado">
+          <tbody>
             <tr>
               <td>CHR-8888</td>
               <td>Amarelo</td>
