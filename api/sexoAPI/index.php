@@ -20,8 +20,7 @@ $app->get('/sexo', function ($request, $response, $args) {
 
    //Solicita os dados para a controller
    if ($dados = listarSexo()) {
-       var_dump($dados);
-       die;
+   
       //realiza a conversão do array de dados em formato json
       if ($dadosJSON = createJSON($dados)) {
          //caso exista dados, retornamos o status code e enviamos os dados em json

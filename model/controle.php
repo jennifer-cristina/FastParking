@@ -12,6 +12,7 @@ require_once('vaga.php');
 
 function insertControle($dadosControle)
 {
+    $statusVaga = 'true';
 
     $statusResposta = (bool) false;
 
@@ -25,12 +26,14 @@ function insertControle($dadosControle)
             values
             ('" . $dadosControle['horaEntrada'] . "',
 			'" . $dadosControle['dataEntrada'] . "', 
-            '" . $dadosControle['idVeiculo'] . "', 
-            '" . $dadosControle['idVaga'] . "');";                         
+            " . $dadosControle['idVeiculo'] . ", 
+            " . $dadosControle['idVaga'] . ");";
 
     if (mysqli_query($conexao, $sql)) {
 
         if (mysqli_affected_rows($conexao)) {
+
+            uptadeVagaControle($dadosControle['idVaga'], $statusVaga);
 
             $statusResposta = true;
         }
@@ -73,6 +76,8 @@ function selectByIdControle($id)
 
 function updateControle($dadosControle)
 {
+    $statusVaga = 'false';
+
     $statusResposta = (bool) false;
 
     $conexao = conectarMysql();
@@ -89,6 +94,8 @@ function updateControle($dadosControle)
     if (mysqli_query($conexao, $sql)) {
 
         if (mysqli_affected_rows($conexao)) {
+
+            uptadeVagaControle($dadosControle['idVaga'], $statusVaga);
 
             $statusResposta = true;
         }

@@ -52,8 +52,27 @@ function uptadeVaga($dadosVagas)
                     idBloco      = " . $dadosVagas['idBloco'] . "
                 where id=" . $dadosVagas['id'];
 
-    // var_dump($script);
-    // die;
+
+    if (mysqli_query($conexao, $script)) {
+        if (mysqli_affected_rows($conexao))
+            $statusResposta = true;
+    }
+
+    fecharConexaoMysql($conexao);
+
+    return $statusResposta;
+}
+
+function uptadeVagaControle($id, $statusVaga){
+
+    $statusResposta = (bool) false;
+
+    $conexao = conectarMysql();
+
+    $script =  "UPDATE tblVaga SET
+                       statusVaga   = $statusVaga
+                WHERE id= " . $id;
+
 
     if (mysqli_query($conexao, $script)) {
         if (mysqli_affected_rows($conexao))
