@@ -28,7 +28,7 @@ $url = explode('/', $urlHTTP);
 
 // Verifica qual API será encaminhada a requisição (cliente, telefone, etc)
 switch (strtoupper($url[0])) {
-    
+
     case 'CLIENTE':
         require_once('clienteAPI/index.php');
         break;
@@ -45,13 +45,16 @@ switch (strtoupper($url[0])) {
         require_once('controleAPI/index.php');
         break;
     case 'VAGA':
-        
         require_once('vagaAPI/index.php');
         break;
+
     case 'BLOCO':
         require_once('blocoAPI/index.php');
         break;
     case 'TIPOVAGA':
         require_once('tipoVagaAPI/index.php');
+        break;
+    case 'SEXO':
+        require_once('sexoAPI/index.php');
         break;
 }
