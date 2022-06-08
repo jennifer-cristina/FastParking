@@ -9,6 +9,7 @@
  *************************************************************************************/
 
 require_once(SRC . './modulo/config.php');
+require_once('vaga.php');
 
 function inserirControle($dadosControle)
 {
@@ -74,7 +75,7 @@ function atualizarControle($dadosControle)
 
             if (!empty($idControle) && $idControle != 0 && is_numeric($idControle)) {
 
-                $arrayDados = array(
+                $arrayDadosControle = array(
                     "id"        => $idControle,
                     "horaEntrada"      => $dadosControle[0]['horaEntrada'],
                     "horaSaida"        => $dadosControle[0]['horaSaida'],
@@ -84,9 +85,16 @@ function atualizarControle($dadosControle)
                     "idVaga"           => $dadosControle[0]['idVaga']    
                 );
 
+                $arrayDadosVaga = array(
+                    "id"           => $id,
+                    "statusVaga"   => $dadosVagas[0]['statusVaga']
+                );
+
                 require_once(SRC . './model/controle.php');
 
                 if (updateControle($arrayDados)) {
+
+                    uptadeVaga()
                     return true;
 
                 } else

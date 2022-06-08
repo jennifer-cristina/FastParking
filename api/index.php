@@ -44,14 +44,20 @@ switch (strtoupper($url[0])) {
     case 'CONTROLE':
         require_once('controleAPI/index.php');
         break;
-    case 'VAGA':
-        
+
+    case 'VAGA':  
         require_once('vagaAPI/index.php');
         break;
+
     case 'BLOCO':
         require_once('blocoAPI/index.php');
         break;
+
     case 'TIPOVAGA':
         require_once('tipoVagaAPI/index.php');
+        break;
+
+    case 'COR':
+        require_once('corAPI/index.php');
         break;
 }
