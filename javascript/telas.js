@@ -15,15 +15,12 @@ const criarAside = () => {
                     </a>
                     <span>CLiente</span>
                 </li>
-                
                 <li>
                     <a href="../pages/cadastroVeiculos.html">
                     <img src="../IMGs/car.png" alt="">
                     </a>
                     <span>Veículos</span>
                 </li>
-                
-            
                 <li>
                     <a href="./entradaVeiculos.html">
                     <img src="../IMGs/cadastrar.png" alt="">
@@ -46,17 +43,16 @@ const criarAside = () => {
                 </li>
                 
                 <li>
-                    <a href="./relatorioDados.html">
+                    <a href="../pages/relatorioDados.html">
                     <img src="../IMGs/relatórios.png" alt="">
                     </a>
                     <span>Relatórios</span>
                 </li>
             </ul>
-
-            
-            
         </div>
-        <img src="../IMGs/sair (3) 1.png" alt="">
+        <a href="../login.html">
+            <img src="../IMGs/sair (3) 1.png" alt="">
+        </a>
     </div>
     
     `
