@@ -8,6 +8,7 @@
  *************************************************************************************/
 
 require_once('conexaoMysql.php');
+require_once('vaga.php');
 
 function insertControle($dadosControle)
 {
@@ -25,7 +26,7 @@ function insertControle($dadosControle)
             ('" . $dadosControle['horaEntrada'] . "',
 			'" . $dadosControle['dataEntrada'] . "', 
             '" . $dadosControle['idVeiculo'] . "', 
-            '" . $dadosControle['idVaga'] . "');";
+            '" . $dadosControle['idVaga'] . "');";                         
 
     if (mysqli_query($conexao, $sql)) {
 
