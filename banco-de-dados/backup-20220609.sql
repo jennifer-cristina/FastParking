@@ -293,35 +293,29 @@ insert into tblControle
                 
 SELECT TIME_FORMAT(TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada), '%H:%i') AS qtdeHoras FROM tblControle WHERE tblControle.id = 17;
 
-select hour(TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada));
+SELECT IF(
+		HOUR(TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada)) >= 1,
+        (SELECT IF(tblControle.dataSaida <> '0000-00-00' AND tblControle.horaSaida <> '00:00:00',
+        (SELECT
+			((HOUR(TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada)) - 1)
+            * tblTipoVaga.precoAdicional)
+            + tblTipoVaga.precoHora), 'Controle n finalizado')),
+        (SELECT tblTipoVaga.precoHora))
+FROM tblControle
+	INNER JOIN tblVaga
+		ON tblControle.idVaga = tblVaga.id
+	INNER JOIN tblTipoVaga
+		ON tblVaga.idTipoVaga = tblTipovaga.id;
+	
 
-SELECT TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada) AS qtdeHoras FROM tblControle WHERE tblControle.id = 17;
-
-SELECT (TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada) - 10000) AS custo FROM tblControle WHERE tblControle.id = 17;
-
-SELECT ((TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada) - 10000) * 3) AS custo FROM tblControle WHERE tblControle.id = 17;
-
-SELECT ((((TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada) - 10000) * 3) + 60000) / 10000) AS custo FROM tblControle WHERE tblControle.id = 17;
-
-SELECT DATE_FORMAT((((TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada) - 10000) * 3) + 60000), '%d,%m') 
-AS custo FROM tblControle WHERE tblControle.id = 17;
 
 
-SELECT TIMEDIFF('10:00:00', '17:30:00') AS custo;
-
-SELECT ( 00 / 60) AS custo;
-
-SELECT ( 7 + ( 00 / 60) ) AS custo;
-
-SELECT ( 1 - ( 7 + ( 00 / 60) ) ) AS custo;
-
-SELECT ( 3 * ( 1 - ( 7 + ( 00 / 60) ) )) AS custo;
-
-SELECT (TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada) - 10000) AS custo FROM tblControle WHERE tblControle.id = 17;
-
-SELECT ((TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada) - 10000) * 3) AS custo FROM tblControle WHERE tblControle.id = 17;
-
-SELECT ((((TIMEDIFF(tblControle.horaSaida, tblControle.horaEntrada) - 10000) * 3) + 60000) / 10000) AS custo FROM tblControle WHERE tblControle.id = 17;
+CASE
+    WHEN Quantity > 3 THEN 'The quantity is greater than 30'
+    WHEN Quantity = 30 THEN 'The quantity is 30'
+    ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;
 
 SELECT tblVaga.id AS vaga,
 	   tblTipoVaga.precoHora AS TipoVaga, tblTipoVaga.precoAdicional
