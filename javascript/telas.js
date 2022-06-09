@@ -13,7 +13,7 @@ const criarAside = () => {
                     <a href="../pages/cadastroClientes.html">
                     <img src="../IMGs/person.png" alt="">
                     </a>
-                    <span>CLiente</span>
+                    <span>Cliente</span>
                 </li>
                 <li>
                     <a href="../pages/cadastroVeiculos.html">

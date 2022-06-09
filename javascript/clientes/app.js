@@ -3,11 +3,11 @@
 import {openModal, closeModal} from './modal-clientes.js'
 import {readCustomers, createClient, deleteClient, updateClient, readSex} from './cliente.js'
 
-const criarOptions = ({nome}) => {
+const criarOptions = ({id}) => {
     const option = document.createElement('option')
     option.innerHTML = `
     <option>
-         ${nome}
+         ${id}
     </option>
     
     `
@@ -47,18 +47,24 @@ const createRow = ({nome, cpf, rg, idSexo, id}) => {
    
 }
 
+const updateTable = async () => {
+
+    const clienteContainer = document.getElementById('clientes-container')
+    //Ler a API e armazenar o resultado em uma variavel
+    const customers = await readCustomers()
+
+    //Preencher a tabela com as informações
+    const rows = customers.map(createRow)
+
+    clienteContainer.replaceChildren(...rows)
+}
 
 const fillForm = (client) => {
     document.getElementById('nome').value = client.nome
     document.getElementById('cpf').value = client.cpf
     document.getElementById('rg').value = client.rg
-    document.getElementById('sexo').select.options[document.getElementById('sexo').selectedIndex].text = client.sexo
+    document.getElementById('sexo').value = client.idSexo
     document.getElementById('nome').dataset.id = client.id
-}
-
-globalThis.delClient = async (id) => {
-    await deleteClient(id)
-    updateTable
 }
 
 globalThis.editClient = async (id) => {
@@ -72,16 +78,9 @@ globalThis.editClient = async (id) => {
     openModal()
 }
 
-const updateTable = async () => {
-
-    const clienteContainer = document.getElementById('clientes-container')
-    //Ler a API e armazenar o resultado em uma variavel
-    const customers = await readCustomers()
-
-    //Preencher a tabela com as informações
-    const rows = customers.map(createRow)
-
-    clienteContainer.replaceChildren(...rows)
+globalThis.delClient = async (id) => {
+    await deleteClient(id)
+    updateTable
 }
 
 const isEdit = () => document.getElementById('nome').hasAttribute('data-id')
@@ -91,14 +90,16 @@ const saveClient = async () => {
     const form = document.getElementById('modal-form')
 
     // criar um json com as informações do cliente
-    const client = {
-        "id": "",
-        "nome": document.getElementById('nome').value,
-        "cpf": document.getElementById('cpf').value,
-        "rg": document.getElementById('rg').value,
-        "idSexo": document.getElementById('sexo').value
-    }
-
+    const client = new FormData(form)
+    
+    // {
+    //     "id": '',
+    //     "nome": document.getElementById('nome').value,
+    //     "cpf": document.getElementById('cpf').value,
+    //     "rg": document.getElementById('rg').value,
+    //     "idSexo": document.getElementById('sexo').value
+    // }
+    
     if(form.reportValidity()) {
         if (isEdit()) {
             client.id = document.getElementById('nome').dataset.id

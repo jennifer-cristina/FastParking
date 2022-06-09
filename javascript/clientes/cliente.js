@@ -1,36 +1,16 @@
 'use strict'
 
-const sexo = [
-    {
-        "id": 1,
-        "sigla": "F",
-        "nome": "Feminino"
-    },
-    {
-        "id": 2,
-        "sigla": "M",
-        "nome": "Masculino"
-    },
-    {
-        "id": 3,
-        "sigla": "O",
-        "nome": "Outros"
-    }
-]
-
-//Recebe a url da api
-
 // Inserir Cliente
 const url = 'http://10.107.134.63/fastParking/FastParking/api/cliente'
 
 //ler clientes
-const readCustomers = async (id='') => {
-    const response = await fetch(`${url}`)
+const readCustomers = async (id) => {
+    const idcliente = id ? `/${id}` :  ''
+    const response = await fetch(`${url}${idcliente}`)
     const data = await response.json()
     return data
 }
 
-readCustomers()
 // const pegarCliente = async (id = '') => {
 //     const url = `http://10.107.134.63/fastParking/FastParking/api/cliente/${id}`
 //     const response = await fetch(url)
@@ -51,15 +31,16 @@ const readSex = async () => {
 
 //criar cliente
 const createClient = async (client) => {
+    console.log(client.get('nome'))
     const options = {
         'method': 'POST',
-        'body': JSON.stringify(client),
+        'body': client,
         'headers': {
-            'content-type': 'application/json'
+            'Content-Type': 'multipart/form-data'
         }
     }
 
-    const response = await fetch(url, options)
+    const response = await fetch('http://10.107.134.63/fastParking/FastParking/api/clientesssssssssss', options)
     console.log (response.ok)
 }
 
@@ -77,9 +58,9 @@ const deleteClient = async (codigo) => {
 //atualizar cliente
 const updateClient = async (client) => {
     const options = {
-        'method': 'PUT',
+        'method': 'POST',
         'body': JSON.stringify(client),
-        headers: {
+        'headers': {
             'content-type': 'application/json'
         }  
     }
