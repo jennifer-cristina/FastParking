@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tblbloco`
+-- Table structure for table `tblBloco`
 --
 
-DROP TABLE IF EXISTS `tblbloco`;
+DROP TABLE IF EXISTS `tblBloco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tblbloco` (
+CREATE TABLE `tblBloco` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `capacidadeMaxima` int DEFAULT NULL,
@@ -32,23 +32,23 @@ CREATE TABLE `tblbloco` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblbloco`
+-- Dumping data for table `tblBloco`
 --
 
-LOCK TABLES `tblbloco` WRITE;
-/*!40000 ALTER TABLE `tblbloco` DISABLE KEYS */;
-INSERT INTO `tblbloco` VALUES (1,'A',200),(2,'B',200),(3,'C',150);
-/*!40000 ALTER TABLE `tblbloco` ENABLE KEYS */;
+LOCK TABLES `tblBloco` WRITE;
+/*!40000 ALTER TABLE `tblBloco` DISABLE KEYS */;
+INSERT INTO `tblBloco` VALUES (1,'A',200),(2,'B',200),(3,'C',150);
+/*!40000 ALTER TABLE `tblBloco` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tblcliente`
+-- Table structure for table `tblCliente`
 --
 
-DROP TABLE IF EXISTS `tblcliente`;
+DROP TABLE IF EXISTS `tblCliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tblcliente` (
+CREATE TABLE `tblCliente` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `cpf` varchar(20) NOT NULL,
@@ -58,28 +58,28 @@ CREATE TABLE `tblcliente` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `FK_Sexo_Cliente` (`idSexo`),
-  CONSTRAINT `FK_Sexo_Cliente` FOREIGN KEY (`idSexo`) REFERENCES `tblsexo` (`id`)
+  CONSTRAINT `FK_Sexo_Cliente` FOREIGN KEY (`idSexo`) REFERENCES `tblSexo` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblcliente`
+-- Dumping data for table `tblCliente`
 --
 
-LOCK TABLES `tblcliente` WRITE;
-/*!40000 ALTER TABLE `tblcliente` DISABLE KEYS */;
-INSERT INTO `tblcliente` VALUES (6,'Luiz Carvalho dos Santos da Silva','514.513.425-56','56.246.551-8','56546546545',2),(9,'Gustavo lima','514.513.425-56','56.246.551-8','56546546545',2);
-/*!40000 ALTER TABLE `tblcliente` ENABLE KEYS */;
+LOCK TABLES `tblCliente` WRITE;
+/*!40000 ALTER TABLE `tblCliente` DISABLE KEYS */;
+INSERT INTO `tblCliente` VALUES (6,'Luiz Carvalho dos Santos da Silva','514.513.425-56','56.246.551-8','56546546545',2),(9,'Gustavo lima','514.513.425-56','56.246.551-8','56546546545',2);
+/*!40000 ALTER TABLE `tblCliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tblcontrole`
+-- Table structure for table `tblControle`
 --
 
-DROP TABLE IF EXISTS `tblcontrole`;
+DROP TABLE IF EXISTS `tblControle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tblcontrole` (
+CREATE TABLE `tblControle` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `horaEntrada` time NOT NULL,
   `horaSaida` time DEFAULT NULL,
@@ -91,29 +91,29 @@ CREATE TABLE `tblcontrole` (
   UNIQUE KEY `id` (`id`),
   KEY `FK_Veiculo_Controle` (`idVeiculo`),
   KEY `FK_Vaga_Controle` (`idVaga`),
-  CONSTRAINT `FK_Vaga_Controle` FOREIGN KEY (`idVaga`) REFERENCES `tblvaga` (`id`),
-  CONSTRAINT `FK_Veiculo_Controle` FOREIGN KEY (`idVeiculo`) REFERENCES `tblveiculo` (`id`)
+  CONSTRAINT `FK_Vaga_Controle` FOREIGN KEY (`idVaga`) REFERENCES `tblVaga` (`id`),
+  CONSTRAINT `FK_Veiculo_Controle` FOREIGN KEY (`idVeiculo`) REFERENCES `tblVeiculo` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblcontrole`
+-- Dumping data for table `tblControle`
 --
 
-LOCK TABLES `tblcontrole` WRITE;
-/*!40000 ALTER TABLE `tblcontrole` DISABLE KEYS */;
-INSERT INTO `tblcontrole` VALUES (1,'15:03:00',NULL,'2022-03-06',NULL,2,16),(2,'16:00:00','17:00:00','2022-06-07','2022-06-07',6,16),(3,'12:00:00',NULL,'2022-03-06',NULL,2,16),(4,'14:00:00',NULL,'2022-03-08',NULL,6,16),(5,'14:00:00',NULL,'2022-03-08',NULL,6,16),(6,'14:00:00',NULL,'2022-03-08',NULL,6,16),(7,'14:00:00',NULL,'2022-03-08',NULL,6,16),(8,'19:00:00',NULL,'2022-03-08',NULL,6,16),(9,'19:00:00',NULL,'2022-03-08',NULL,6,16),(10,'19:00:00',NULL,'2022-03-08',NULL,6,16),(11,'19:00:00',NULL,'2022-03-08',NULL,6,16),(12,'19:00:00',NULL,'2022-03-08',NULL,6,16),(13,'21:00:00',NULL,'2022-03-08',NULL,6,18),(14,'21:00:00',NULL,'2022-03-08',NULL,6,18),(15,'22:00:00',NULL,'2022-03-08',NULL,6,18),(16,'20:00:00',NULL,'2022-03-08',NULL,6,19),(17,'16:47:00','18:00:00','2022-03-08','2022-03-08',6,19),(18,'16:47:00',NULL,'2022-03-08',NULL,6,19);
-/*!40000 ALTER TABLE `tblcontrole` ENABLE KEYS */;
+LOCK TABLES `tblControle` WRITE;
+/*!40000 ALTER TABLE `tblControle` DISABLE KEYS */;
+INSERT INTO `tblControle` VALUES (1,'15:03:00',NULL,'2022-03-06',NULL,2,16),(2,'16:00:00','17:00:00','2022-06-07','2022-06-07',6,16),(3,'12:00:00',NULL,'2022-03-06',NULL,2,16),(4,'14:00:00',NULL,'2022-03-08',NULL,6,16),(5,'14:00:00',NULL,'2022-03-08',NULL,6,16),(6,'14:00:00',NULL,'2022-03-08',NULL,6,16),(7,'14:00:00',NULL,'2022-03-08',NULL,6,16),(8,'19:00:00',NULL,'2022-03-08',NULL,6,16),(9,'19:00:00',NULL,'2022-03-08',NULL,6,16),(10,'19:00:00',NULL,'2022-03-08',NULL,6,16),(11,'19:00:00',NULL,'2022-03-08',NULL,6,16),(12,'19:00:00',NULL,'2022-03-08',NULL,6,16),(13,'21:00:00',NULL,'2022-03-08',NULL,6,18),(14,'21:00:00',NULL,'2022-03-08',NULL,6,18),(15,'22:00:00',NULL,'2022-03-08',NULL,6,18),(16,'20:00:00',NULL,'2022-03-08',NULL,6,19),(17,'16:47:00','18:00:00','2022-03-08','2022-03-08',6,19),(18,'16:47:00',NULL,'2022-03-08',NULL,6,19);
+/*!40000 ALTER TABLE `tblControle` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tblcor`
+-- Table structure for table `tblCor`
 --
 
-DROP TABLE IF EXISTS `tblcor`;
+DROP TABLE IF EXISTS `tblCor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tblcor` (
+CREATE TABLE `tblCor` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -122,23 +122,23 @@ CREATE TABLE `tblcor` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblcor`
+-- Dumping data for table `tblCor`
 --
 
-LOCK TABLES `tblcor` WRITE;
-/*!40000 ALTER TABLE `tblcor` DISABLE KEYS */;
-INSERT INTO `tblcor` VALUES (1,'Vermelho'),(2,'Marrom'),(3,'Prata'),(4,'Branco'),(5,'Amarelo'),(6,'Roxo'),(7,'Cinza'),(8,'Verde'),(9,'Preto'),(10,'Azul');
-/*!40000 ALTER TABLE `tblcor` ENABLE KEYS */;
+LOCK TABLES `tblCor` WRITE;
+/*!40000 ALTER TABLE `tblCor` DISABLE KEYS */;
+INSERT INTO `tblCor` VALUES (1,'Vermelho'),(2,'Marrom'),(3,'Prata'),(4,'Branco'),(5,'Amarelo'),(6,'Roxo'),(7,'Cinza'),(8,'Verde'),(9,'Preto'),(10,'Azul');
+/*!40000 ALTER TABLE `tblCor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tblsexo`
+-- Table structure for table `tblSexo`
 --
 
-DROP TABLE IF EXISTS `tblsexo`;
+DROP TABLE IF EXISTS `tblSexo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tblsexo` (
+CREATE TABLE `tblSexo` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `sigla` varchar(1) NOT NULL,
   `nome` varchar(15) NOT NULL,
@@ -148,23 +148,23 @@ CREATE TABLE `tblsexo` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblsexo`
+-- Dumping data for table `tblSexo`
 --
 
-LOCK TABLES `tblsexo` WRITE;
-/*!40000 ALTER TABLE `tblsexo` DISABLE KEYS */;
-INSERT INTO `tblsexo` VALUES (1,'F','Feminino'),(2,'M','Masculino'),(3,'O','Outros');
-/*!40000 ALTER TABLE `tblsexo` ENABLE KEYS */;
+LOCK TABLES `tblSexo` WRITE;
+/*!40000 ALTER TABLE `tblSexo` DISABLE KEYS */;
+INSERT INTO `tblSexo` VALUES (1,'F','Feminino'),(2,'M','Masculino'),(3,'O','Outros');
+/*!40000 ALTER TABLE `tblSexo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbltelefone`
+-- Table structure for table `tblTelefone`
 --
 
-DROP TABLE IF EXISTS `tbltelefone`;
+DROP TABLE IF EXISTS `tblTelefone`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbltelefone` (
+CREATE TABLE `tblTelefone` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `ddd` varchar(5) NOT NULL,
   `numero` varchar(20) NOT NULL,
@@ -172,28 +172,28 @@ CREATE TABLE `tbltelefone` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `FK_Cliente_Telefone` (`idCliente`),
-  CONSTRAINT `FK_Cliente_Telefone` FOREIGN KEY (`idCliente`) REFERENCES `tblcliente` (`id`)
+  CONSTRAINT `FK_Cliente_Telefone` FOREIGN KEY (`idCliente`) REFERENCES `tblCliente` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbltelefone`
+-- Dumping data for table `tblTelefone`
 --
 
-LOCK TABLES `tbltelefone` WRITE;
-/*!40000 ALTER TABLE `tbltelefone` DISABLE KEYS */;
-INSERT INTO `tbltelefone` VALUES (4,'055','94578-8655',6);
-/*!40000 ALTER TABLE `tbltelefone` ENABLE KEYS */;
+LOCK TABLES `tblTelefone` WRITE;
+/*!40000 ALTER TABLE `tblTelefone` DISABLE KEYS */;
+INSERT INTO `tblTelefone` VALUES (4,'055','94578-8655',6);
+/*!40000 ALTER TABLE `tblTelefone` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tbltipovaga`
+-- Table structure for table `tblTipoVaga`
 --
 
-DROP TABLE IF EXISTS `tbltipovaga`;
+DROP TABLE IF EXISTS `tblTipoVaga`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tbltipovaga` (
+CREATE TABLE `tblTipoVaga` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `precoHora` decimal(50,0) NOT NULL,
@@ -205,23 +205,23 @@ CREATE TABLE `tbltipovaga` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbltipovaga`
+-- Dumping data for table `tblTipoVaga`
 --
 
-LOCK TABLES `tbltipovaga` WRITE;
-/*!40000 ALTER TABLE `tbltipovaga` DISABLE KEYS */;
-INSERT INTO `tbltipovaga` VALUES (1,'Pequeno porte',4,2,40),(2,'Medio porte',6,3,60),(3,'Grande porte',8,4,80);
-/*!40000 ALTER TABLE `tbltipovaga` ENABLE KEYS */;
+LOCK TABLES `tblTipoVaga` WRITE;
+/*!40000 ALTER TABLE `tblTipoVaga` DISABLE KEYS */;
+INSERT INTO `tblTipoVaga` VALUES (1,'Pequeno porte',4,2,40),(2,'Medio porte',6,3,60),(3,'Grande porte',8,4,80);
+/*!40000 ALTER TABLE `tblTipoVaga` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tblvaga`
+-- Table structure for table `tblVaga`
 --
 
-DROP TABLE IF EXISTS `tblvaga`;
+DROP TABLE IF EXISTS `tblVaga`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tblvaga` (
+CREATE TABLE `tblVaga` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `statusVaga` tinyint(1) NOT NULL,
   `preferencial` tinyint(1) NOT NULL,
@@ -231,29 +231,29 @@ CREATE TABLE `tblvaga` (
   UNIQUE KEY `id` (`id`),
   KEY `FK_TipoVaga_Vaga` (`idTipoVaga`),
   KEY `FK_Bloco_Vaga` (`idBloco`),
-  CONSTRAINT `FK_Bloco_Vaga` FOREIGN KEY (`idBloco`) REFERENCES `tblbloco` (`id`),
-  CONSTRAINT `FK_TipoVaga_Vaga` FOREIGN KEY (`idTipoVaga`) REFERENCES `tbltipovaga` (`id`)
+  CONSTRAINT `FK_Bloco_Vaga` FOREIGN KEY (`idBloco`) REFERENCES `tblBloco` (`id`),
+  CONSTRAINT `FK_TipoVaga_Vaga` FOREIGN KEY (`idTipoVaga`) REFERENCES `tblTipoVaga` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblvaga`
+-- Dumping data for table `tblVaga`
 --
 
-LOCK TABLES `tblvaga` WRITE;
-/*!40000 ALTER TABLE `tblvaga` DISABLE KEYS */;
-INSERT INTO `tblvaga` VALUES (16,1,0,2,1),(17,1,0,2,1),(18,1,0,2,1),(19,0,0,2,1);
-/*!40000 ALTER TABLE `tblvaga` ENABLE KEYS */;
+LOCK TABLES `tblVaga` WRITE;
+/*!40000 ALTER TABLE `tblVaga` DISABLE KEYS */;
+INSERT INTO `tblVaga` VALUES (16,1,0,2,1),(17,1,0,2,1),(18,1,0,2,1),(19,0,0,2,1);
+/*!40000 ALTER TABLE `tblVaga` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tblveiculo`
+-- Table structure for table `tblVeiculo`
 --
 
-DROP TABLE IF EXISTS `tblveiculo`;
+DROP TABLE IF EXISTS `tblVeiculo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tblveiculo` (
+CREATE TABLE `tblVeiculo` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `placa` varchar(10) NOT NULL,
   `idCor` int unsigned NOT NULL,
@@ -262,19 +262,19 @@ CREATE TABLE `tblveiculo` (
   UNIQUE KEY `id` (`id`),
   KEY `FK_Cor_Veiculo` (`idCor`),
   KEY `FK_Cliente_Veiculo` (`idCliente`),
-  CONSTRAINT `FK_Cliente_Veiculo` FOREIGN KEY (`idCliente`) REFERENCES `tblcliente` (`id`),
-  CONSTRAINT `FK_Cor_Veiculo` FOREIGN KEY (`idCor`) REFERENCES `tblcor` (`id`)
+  CONSTRAINT `FK_Cliente_Veiculo` FOREIGN KEY (`idCliente`) REFERENCES `tblCliente` (`id`),
+  CONSTRAINT `FK_Cor_Veiculo` FOREIGN KEY (`idCor`) REFERENCES `tblCor` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tblveiculo`
+-- Dumping data for table `tblVeiculo`
 --
 
-LOCK TABLES `tblveiculo` WRITE;
-/*!40000 ALTER TABLE `tblveiculo` DISABLE KEYS */;
-INSERT INTO `tblveiculo` VALUES (2,'4657-ajsh',7,6),(6,'4596-ajsh',7,6);
-/*!40000 ALTER TABLE `tblveiculo` ENABLE KEYS */;
+LOCK TABLES `tblVeiculo` WRITE;
+/*!40000 ALTER TABLE `tblVeiculo` DISABLE KEYS */;
+INSERT INTO `tblVeiculo` VALUES (2,'4657-ajsh',7,6),(6,'4596-ajsh',7,6);
+/*!40000 ALTER TABLE `tblVeiculo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
