@@ -4,13 +4,13 @@
  * 
  *  Jennifer e Laise
  *  02/06/2022
- *  Versão 2.0
+ *  Versão 1.0
  *****************************************************/
 
 
-const SERVER = '34.95.198.220';
+const SERVER = 'localhost';
 const USER = 'root';
-const PASSWORD = 'N01d25y15b04';
+const PASSWORD = 'bcd127';
 const DATABASE = 'dbFastParking';
 
  function conectarMysql(){
