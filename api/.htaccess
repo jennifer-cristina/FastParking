@@ -1,11 +1,5 @@
 #Ativação das permições do servidor APACHE nas requisições da API
 
-<IfModule mod_rewrite.c>
-    Header set Access-Control-Allow-Origin: "*"
-    Header set Access-Control-Allow-Methods: "GET,POST,PUT,DELETE,OPTIONS"
-    Header set Access-Control-Allow-Headers: "X-Requested-Width, Content-Type"
-</IfModule>
-
 RewriteEngine On
 Options All -Indexes
 
