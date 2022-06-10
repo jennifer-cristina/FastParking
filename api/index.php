@@ -50,7 +50,7 @@ switch (strtoupper($url[0])) {
         break;
 
     case 'BLOCO':
-        require_once('./blocosAPI/index.php');
+        require_once('./blocoAPI/index.php');
         break;
 
     case 'TIPOVAGA':
