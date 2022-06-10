@@ -25,7 +25,7 @@ $app->post('/veiculo', function ($request, $response, $args) {
     $contentType = explode(";", $contentTypeHeader);
 
     switch ($contentType[0]) {
-        case 'multipart/form-data':
+        case 'application/json':
 
             // Recebe os dados comuns enviado pelo da requisição
             $dadosBody = $request->getParsedBody();
@@ -58,14 +58,6 @@ $app->post('/veiculo', function ($request, $response, $args) {
                                           "Erro": ' . $dadosJSON . '
                                         }');
             }
-
-            break;
-
-        case 'application/json':
-
-            return $response->withStatus(200)
-                            ->withHeader('Content-Type', 'application/json')
-                            ->write('{"message": "Formato selecionado foi JSON."}');
 
             break;
 
@@ -272,7 +264,7 @@ $app->post('/veiculo/{id}', function ($request, $response, $args) {
 
         switch ($contentType[0]) {
 
-            case 'multipart/form-data':
+            case 'application/json':
 
                 if (buscarVeiculo($id)) {
 

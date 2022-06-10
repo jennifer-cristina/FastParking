@@ -149,7 +149,7 @@ $app->post('/cliente', function ($request, $response, $args) {
     $contentType = explode(";", $contentTypeHeader);
 
     switch ($contentType[0]) {
-        case 'multipart/form-data':
+        case 'application/json':
 
             // Recebe os dados comuns enviado pelo da requisição
             $dadosBody = $request->getParsedBody();
@@ -186,14 +186,6 @@ $app->post('/cliente', function ($request, $response, $args) {
 
             break;
 
-        case 'application/json':
-
-            return $response->withStatus(200)
-                            ->withHeader('Content-Type', 'application/json')
-                            ->write('{"message": "Formato selecionado foi JSON."}');
-
-            break;
-
         default:
 
             return $response->withStatus(400)
@@ -223,7 +215,7 @@ $app->post('/cliente/{id}', function ($request, $response, $args) {
 
         switch ($contentType[0]) {
 
-            case 'multipart/form-data':
+            case 'application/json':
 
                 if (buscarCliente($id)) {
 

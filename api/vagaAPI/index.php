@@ -26,7 +26,7 @@ $app->post('/vaga', function ($request, $response, $args) {
     $contentType = explode(";", $contentTypeHeader);
 
     switch ($contentType[0]) {
-        case 'multipart/form-data':
+        case 'application/json':
 
             $arrayDados = $request->getParsedBody();
 
@@ -64,7 +64,7 @@ $app->post('/vaga/{id}', function ($request, $response, $args) {
         $contentType = explode(";", $contentTypeHeader);
 
         switch ($contentType[0]) {
-            case 'multipart/form-data':
+            case 'application/json':
                 $dadosBody = $request->getParsedBody();
 
                 $arrayDados = array(
