@@ -16,7 +16,7 @@ function selectAllTipoVaga()
    $conexao = conectarMysql();
 
    //script para listar todos os dados do BD
-   $script = "select * from tbltipoVaga"; 
+   $script = "select * from tblTipoVaga"; 
 
    //Executa o script sql no BD e guarda o retorno dos dados, se houver
    $result = mysqli_query($conexao, $script);
