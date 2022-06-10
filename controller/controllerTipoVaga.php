@@ -9,7 +9,7 @@
 
 
 //Importe do arquivo que vai buscar os dados no BD
-require_once(SRC . '/model/tipoVaga.php');
+require_once(SRC . './model/tipoVaga.php');
 
 function listarTipoVaga()
 {
