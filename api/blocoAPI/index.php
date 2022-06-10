@@ -8,7 +8,7 @@
 require_once('vendor/autoload.php');
 
 //Criando um objeto do slim chamado app, para configurar os EndPoint
-$app = new \Slim\App();
+require_once('../app.php');
 
 //endpoit para pegar todos blocos
 $app->get('/bloco', function ($request, $response, $args) {

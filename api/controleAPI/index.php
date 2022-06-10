@@ -10,7 +10,7 @@
 // Import do arquivo autoload, que fará as instancias do slim
 require_once('vendor/autoload.php');
 
-$app = new \Slim\App();
+require_once('../app.php');
 
 // EndPoint: requisição para inserir um novo controle
 $app->post('/controle', function ($request, $response, $args) {
