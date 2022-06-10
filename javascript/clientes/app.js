@@ -90,15 +90,14 @@ const saveClient = async () => {
     const form = document.getElementById('modal-form')
 
     // criar um json com as informações do cliente
-    const client = new FormData(form)
-    
-    // {
-    //     "id": '',
-    //     "nome": document.getElementById('nome').value,
-    //     "cpf": document.getElementById('cpf').value,
-    //     "rg": document.getElementById('rg').value,
-    //     "idSexo": document.getElementById('sexo').value
-    // }
+    const client = 
+    {
+        "id": '',
+        "nome": document.getElementById('nome').value,
+        "cpf": document.getElementById('cpf').value,
+        "rg": document.getElementById('rg').value,
+        "idSexo": document.getElementById('sexo').value
+    }
     
     if(form.reportValidity()) {
         if (isEdit()) {

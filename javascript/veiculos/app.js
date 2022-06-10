@@ -1,14 +1,70 @@
 'use strict'
 
 import {openModal, closeModal} from './modal-veiculos.js'
-import {readVeiculo, createVeiculo, deleteVeiculo, uptadeVeiculo} from './veiculo.js'
+import {readVeiculo, createVeiculo, deleteVeiculo, uptadeVeiculo, readCor, readCliente} from './veiculo.js'
 
-const createRow = ({placa, cor, responsavel, id}) => {
+const criarOptionsCor = ({id}) => {
+    const option = document.createElement('option')
+    option.innerHTML = `
+    <option>
+         ${id}
+    </option>
+    
+    `
+
+    return option
+}
+
+const carregarCor = async () =>{
+    const container = document.getElementById('cor')
+    const cores = await readCor()
+    const option = cores.map(criarOptionsCor)
+    container.replaceChildren(...option)
+    // listaSexo.innerHTML = `
+    // <option>Selecione o sexo</option>
+    // <option>
+    //     ${)}
+    // </option>
+    // `
+     return option
+}
+
+carregarCor()
+
+const criarOptionsCliente = ({id}) => {
+    const option = document.createElement('option')
+    option.innerHTML = `
+    <option>
+         ${id}
+    </option>
+    
+    `
+
+    return option
+}
+
+const carregarCliente = async () =>{
+    const container = document.getElementById('responsavel')
+    const clientes = await readCliente()
+    const option = clientes.map(criarOptionsCliente)
+    container.replaceChildren(...option)
+    // listaSexo.innerHTML = `
+    // <option>Selecione o sexo</option>
+    // <option>
+    //     ${)}
+    // </option>
+    // `
+     return option
+}
+
+carregarCliente()
+
+const createRow = ({placa, idCor, idCliente, id}) => {
     const row = document.createElement('tr')
     row.innerHTML = `
         <td>${placa}</td>
-        <td>${cor}</td>
-        <td>${responsavel}</td>
+        <td>${idCor}</td>
+        <td>${idCliente}</td>
         <td>
             <button type="button" class="button green" onClick="editVeiculo(${id})">editar</button>
             <button type="button" class="button red" onClick="delVeiculo(${id})">excluir</button>
@@ -19,8 +75,9 @@ const createRow = ({placa, cor, responsavel, id}) => {
 
 const fillForm = (veiculo) => {
     document.getElementById('placa').value = veiculo.placa
-    document.getElementById('cor').options[document.getElementById('cor').selectedIndex].value = veiculo.cor
-    document.getElementById('responsavel').options[document.getElementById('responsavel').selectedIndex].value = veiculo.responsavel
+    document.getElementById('cor').value = veiculo.idCor
+    document.getElementById('responsavel').value = veiculo.idCliente
+    document.getElementById('placa').dataset.id = veiculo.id
 }
 
 globalThis.delVeiculo = async (id) => {
@@ -62,13 +119,15 @@ const saveVeiculo = async () => {
     const veiculo = {
         "id": "",
         "placa": document.getElementById('placa').value,
-        "cor": document.getElementById('cor').value,
-        "responsavel": document.getElementById('responsavel').value
+        "idCor": document.getElementById('cor').value,
+        "idCliente": document.getElementById('responsavel').value
     }
 
     if(form.reportValidity()) {
+        console.log(isEdit())
         if (isEdit()) {
             veiculo.id = document.getElementById('placa').dataset.id
+            console.log("uptade",veiculo)
             await uptadeVeiculo(veiculo)
         } else {
              createVeiculo(veiculo)

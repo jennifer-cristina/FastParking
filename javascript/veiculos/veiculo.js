@@ -6,13 +6,23 @@ const url = 'http://10.107.134.63/fastParking/FastParking/api/veiculo'
 
 //ler veiculoes
 const readVeiculo = async (id='') => {
-    const response = await fetch(`${url}/${id}`)
+    const idveiculo = id ? `/${id}` :  ''
+    const response = await fetch(`${url}${idveiculo}`)
     return await response.json()
 }
 
+console.log( await readVeiculo())
+
 //ler veiculoes
-const readCor = async (id='') => {
-    const response = await fetch(`${url}/${id}`)
+const readCor = async () => {
+    const urlCor = 'http://10.107.134.63/fastParking/FastParking/api/cor'
+    const response = await fetch(urlCor)
+    return await response.json()
+}
+
+const readCliente = async () => {
+    const urlCliente = 'http://10.107.134.63/fastParking/FastParking/api/cliente'
+    const response = await fetch(urlCliente)
     return await response.json()
 }
 
@@ -44,12 +54,13 @@ const deleteVeiculo = async (codigo) => {
 //atualizar veiculo
 const uptadeVeiculo = async (veiculo) => {
     const options = {
-        'method': 'PUT',
+        'method': 'POST',
         'body': JSON.stringify(veiculo),
         headers: {
             'content-type': 'application/json'
         }  
     }
+
 
     const response = await fetch(`${url}/${veiculo.id}`, options)
     console.log ('UPDATE', response.ok)
@@ -58,5 +69,5 @@ const uptadeVeiculo = async (veiculo) => {
 
 
 export {
-    readVeiculo, createVeiculo, deleteVeiculo, uptadeVeiculo
+    readVeiculo, createVeiculo, deleteVeiculo, uptadeVeiculo, readCor, readCliente
 }

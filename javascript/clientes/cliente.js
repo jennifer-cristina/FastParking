@@ -31,16 +31,14 @@ const readSex = async () => {
 
 //criar cliente
 const createClient = async (client) => {
-    console.log(client.get('nome'))
     const options = {
         'method': 'POST',
-        'body': client,
+        'body': JSON.stringify(client),
         'headers': {
-            'Content-Type': 'multipart/form-data'
+            'content-type': 'application/json'
         }
     }
-
-    const response = await fetch('http://10.107.134.63/fastParking/FastParking/api/clientesssssssssss', options)
+    const response = await fetch(url, options)
     console.log (response.ok)
 }
 
@@ -57,6 +55,7 @@ const deleteClient = async (codigo) => {
 
 //atualizar cliente
 const updateClient = async (client) => {
+    
     const options = {
         'method': 'POST',
         'body': JSON.stringify(client),
@@ -64,7 +63,7 @@ const updateClient = async (client) => {
             'content-type': 'application/json'
         }  
     }
-
+    
     const response = await fetch(`${url}/${client.id}`, options)
     console.log ('UPDATE', response.ok)
 }

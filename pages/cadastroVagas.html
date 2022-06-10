@@ -23,19 +23,15 @@
             <thead>
                 <tr>
                     <th>N° Vaga</th>
-                    <th>Bloco</th>
+                    <th>Status Vaga</th>
                     <th>Preferencial</th>
                     <th>Tipo</th>
+                    <th>Bloco</th>
                     <th>Ação</th>
                 </tr>
             </thead>
             <tbody id="vagas-container">
-                <tr>
-                    <td>1</td>
-                    <td>A1</td>
-                    <td>SIM</td>
-                    <td>Grande Porte</td>
-                </tr>
+
             </tbody>
         </table>
 
@@ -48,24 +44,21 @@
                 <form class="modal-form" id="modal-form">
                     <div class="modal-field-container">
 
-                        
-                        <select name="bloco" id="bloco" class="modal-field">
-                            <option value="">Selecione o bloco da vaga</option>
-                        </select>
-                        
-                        
+                        <div class="campos-perguntas">Status:
+                            <input type="checkbox" id="statusvaga" >
+                        </div>
                         
                         <div class="campos-perguntas">Preferencial:
                             <input type="checkbox" name="preferencial" id="preferencial" >
                         </div>
                         
-
-                        
                         <select name="tipo" id="tipo" class="modal-field">
-                            <option value="">Selecione o tipo da vaga</option>
+                            
                         </select>
                         
-                        
+                        <select name="bloco" id="bloco" class="modal-field">
+                            
+                        </select>
             
                     </div>
                 </form>
