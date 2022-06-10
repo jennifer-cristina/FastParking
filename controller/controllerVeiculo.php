@@ -8,7 +8,7 @@
  * Versão: 1.0
  *************************************************************************************/
 
-require_once(SRC . './modulo/config.php');
+
 
 function inserirVeiculo($dadosVeiculo)
 {

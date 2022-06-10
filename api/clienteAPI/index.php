@@ -9,9 +9,9 @@
 
 // Import do arquivo autoload, que fará as instancias do slim
 require_once('vendor/autoload.php');
-require_once(SRC . './modulo/config.php');
 
-require_once(SRC . '../app.php');
+
+require_once('app.php');
 
 // EndPoint: requisição para listar todos os clientes
 $app->get('/cliente', function ($request, $response, $args) {

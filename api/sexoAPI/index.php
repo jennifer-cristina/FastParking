@@ -7,10 +7,10 @@
 
 require_once('vendor/autoload.php');
 
-require_once(SRC . './modulo/config.php');
+
 
 //Criando um objeto do slim chamado app, para configurar os EndPoint
-require_once(SRC . '../app.php');
+require_once('app.php');
 
 //endpoit para pegar todos blocos
 $app->get('/sexo', function ($request, $response, $args) {
