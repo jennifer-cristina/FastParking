@@ -3,10 +3,10 @@
 /*****************************************************************************
  *  Objetivo: Arquivo principal da API que irá receber a URL requisitada
  *  e redirecionar para as APIs(router)
- *  Data: 02/06/2022
+ *  Data: 09/06/2022
  *  Autoras: Jennifer e Laise
  *  Versão: 1.0
- *****************************************************************************/
+ ******************************************************************************/
 
 // Permite ativar quais endereços de sites que poderão fazer requisições na API
 header('Access-Control-Allow-Origin: *');
