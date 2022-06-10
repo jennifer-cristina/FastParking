@@ -42,7 +42,7 @@ function selectAllTelefone()
 
     $conexao = conectarMysql();
 
-    $sql = "select * from tbltelefone order by id asc";
+    $sql = "select * from tblTelefone order by id asc";
 
     $result = mysqli_query($conexao, $sql);
 
