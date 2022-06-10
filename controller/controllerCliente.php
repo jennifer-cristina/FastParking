@@ -45,7 +45,7 @@ function inserirCliente($dadosCliente)
 
 function listarCliente()
 {
-    require_once(SRC . 'model/cliente.php');
+    require_once(SRC . './model/cliente.php');
 
     $dados = selectAllCliente();
 
@@ -60,7 +60,7 @@ function buscarCliente($id)
 
     if ($id != 0 && !empty($id) && is_numeric($id)) {
 
-        require_once(SRC . 'model/cliente.php');
+        require_once(SRC . './model/cliente.php');
 
         $dados = selectByIdCliente($id);
 
@@ -80,7 +80,7 @@ function excluirCliente($id)
 {
     if ($id != 0 && !empty($id) && is_numeric($id)) {
 
-        require_once(SRC . 'model/cliente.php');
+        require_once(SRC . './model/cliente.php');
 
         if (deleteCliente($id)) {
 

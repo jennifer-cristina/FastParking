@@ -12,7 +12,7 @@
 
 function listarCor()
 {
-    require_once(SRC . 'model/cor.php');
+    require_once(SRC . './model/cor.php');
 
     $dados = selectAllCor();
 

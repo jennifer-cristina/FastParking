@@ -43,7 +43,7 @@ function inserirVeiculo($dadosVeiculo)
 
 function listarVeiculo()
 {
-    require_once(SRC . 'model/veiculo.php');
+    require_once(SRC . './model/veiculo.php');
 
     $dados = selectAllVeiculo();
 
@@ -58,7 +58,7 @@ function buscarVeiculo($id)
 
     if ($id != 0 && !empty($id) && is_numeric($id)) {
 
-        require_once(SRC . 'model/veiculo.php');
+        require_once(SRC . './model/veiculo.php');
 
         $dados = selectByIdVeiculo($id);
 
@@ -79,7 +79,7 @@ function buscarPlacaVeiculo($placa)
 
     if (!empty($placa)) {
 
-        require_once(SRC . 'model/veiculo.php');
+        require_once(SRC . './model/veiculo.php');
 
         $dados = selectByBoardVeiculo($placa);
 
@@ -99,7 +99,7 @@ function excluirVeiculo($id)
 {
     if ($id != 0 && !empty($id) && is_numeric($id)) {
 
-        require_once(SRC . 'model/veiculo.php');
+        require_once(SRC . './model/veiculo.php');
 
         if (deleteVeiculo($id)) {
 
