@@ -9,7 +9,7 @@
  ******************************************************************************/
 
 // Permite ativar quais endereços de sites que poderão fazer requisições na API
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 
 // Permite ativar os metódos do protocolo HTTP que irão requisitar a API
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
