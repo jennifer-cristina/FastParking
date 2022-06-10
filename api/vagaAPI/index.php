@@ -12,7 +12,7 @@ require_once('vendor/autoload.php');
 
 
 //Criando um objeto do slim chamado app, para configurar os EndPoint
-require_once('../app.php');
+require_once(SRC . '../app.php');
 
 $app->post('/vaga', function ($request, $response, $args) {
 

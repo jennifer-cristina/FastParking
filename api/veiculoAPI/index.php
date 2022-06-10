@@ -10,7 +10,7 @@
 // Import do arquivo autoload, que fará as instancias do slim
 require_once('vendor/autoload.php');
 
-require_once('../app.php');
+require_once(SRC . '../app.php');
 
 // EndPoint: requisição para inserir um novo veiculo
 $app->post('/veiculo', function ($request, $response, $args) {
