@@ -8,9 +8,9 @@
  *****************************************************/
 
 
-const SERVER = '34.95.198.220';
+const SERVER = 'localhost';
 const USER = 'root';
-const PASSWORD = 'N01d25y15b04';
+const PASSWORD = 'bcd127';
 const DATABASE = 'dbFastParking';
 
  function conectarMysql(){
