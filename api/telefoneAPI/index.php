@@ -10,6 +10,8 @@
 // Import do arquivo autoload, que fará as instancias do slim
 require_once('vendor/autoload.php');
 
+require_once(SRC . './modulo/config.php');
+
 require_once(SRC . '../app.php');
 
 // EndPoint: requisição para inserir um novo Telefone
