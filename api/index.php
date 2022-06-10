@@ -46,7 +46,7 @@ switch (strtoupper($url[0])) {
         break;
 
     case 'VAGA':  
-        require_once('vagaAPI/index.php');
+        require_once('vagasAPI/index.php');
         break;
 
     case 'BLOCO':
