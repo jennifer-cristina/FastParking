@@ -8,18 +8,6 @@
  *  Versão: 1.0
  ******************************************************************************/
 
-// Permite ativar quais endereços de sites que poderão fazer requisições na API
-header('Access-Control-Allow-Origin: *');
-
-// Permite ativar os metódos do protocolo HTTP que irão requisitar a API
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-
-// Permite ativar o Content-Type das requisições (Formato de dados que será utilizado (JSON, XML, FORM/DATA, etc.))
-header('Access-Control-Allow-Header: Content-Type');
-
-// Permite liberar quais Content-Type serão utilizados na API
-header('Content-Type: application/json');
-
 // Recebe a url digitada na requisição
 $urlHTTP = (string) $_GET['url'];
 
