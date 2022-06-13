@@ -1,3 +1,4 @@
+SHOW DATABASES;
 
 CREATE DATABASE dbFastParking;
 
