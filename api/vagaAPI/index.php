@@ -1,15 +1,10 @@
 <?php
 
-/**
+/*********************
  * DATA: 02/06/2022
- * 
- */
-
-
-
+ * Autora: Laise
+ ********************/
 require_once('vendor/autoload.php');
-
-
 
 //Criando um objeto do slim chamado app, para configurar os EndPoint
 require_once('app.php');

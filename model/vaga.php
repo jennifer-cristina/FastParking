@@ -37,7 +37,6 @@ function insertVaga($dadosVagas)
     return $statusResposta;
 }
 
-
 //Função para atualizar no bano
 function uptadeVaga($dadosVagas)
 {
@@ -63,7 +62,8 @@ function uptadeVaga($dadosVagas)
     return $statusResposta;
 }
 
-function uptadeVagaControle($id, $statusVaga){
+function uptadeVagaControle($id, $statusVaga)
+{
 
     $statusResposta = (bool) false;
 
@@ -89,20 +89,19 @@ function deleteVaga($id)
     $statusResposta = (bool) false;
     $conexao = conectarMysql();
 
-        //script para deletar um resgistro do BD
-        $script = "delete from tblVaga where id=".$id;
+    //script para deletar um resgistro do BD
+    $script = "delete from tblVaga where id=" . $id;
 
-        //Valida se o script está correto, sem erro de sintaxe e executa no BD
-        if(mysqli_query($conexao, $script))
-        {
-            //Valida se o BD teve sucesso na execução do script
-            if(mysqli_affected_rows($conexao))
-                $statusResposta = true;
-        }
+    //Valida se o script está correto, sem erro de sintaxe e executa no BD
+    if (mysqli_query($conexao, $script)) {
+        //Valida se o BD teve sucesso na execução do script
+        if (mysqli_affected_rows($conexao))
+            $statusResposta = true;
+    }
 
-        //Fecha a conexão com o BD mysql
-        fecharConexaoMysql($conexao);
-        return $statusResposta;
+    //Fecha a conexão com o BD mysql
+    fecharConexaoMysql($conexao);
+    return $statusResposta;
 }
 
 function selectAllVaga()
@@ -170,3 +169,44 @@ function selectByIdVaga($id)
             return false;
     }
 }
+/*
+select (select count(statusVaga) from tblVaga where statusVaga = true) as 'vagasOcupadas', 
+	   (select count(statusVaga) from tblVaga where statusVaga = false) as 'vagasDisponiveis',
+       (select count(*) from tblVaga) as 'totalVagas';
+*/
+
+// function selectCountVagas()
+// {
+//     //Abre a conexão com o BD
+//     $conexao = conectarMysql();
+
+//     //script para listar o dado do BD
+//     $script = "select 
+//             (select count(statusVaga) from tblVaga where statusVaga = false and idTipoVaga=1) as 'pequenoPorte',       
+//             (select count(statusVaga) from tblVaga where statusVaga = false and idTipoVaga=2) as 'medioPorte',
+//             (select count(statusVaga) from tblVaga where statusVaga = false and idTipoVaga=3) as 'grandePorte';";
+
+//     //Executa o script sql no BD e guarda o retorno dos dados, se houver
+//     $result = mysqli_query($conexao, $script);
+
+//     //Valida se o BD retornou registros
+//     if ($result) {
+//         $cont = 0;
+//         while ($rsDados = mysqli_fetch_assoc($result)) {
+//             //Cria um array com os dados do BD
+//             $arrayDados[$cont] = array(
+//                 "pequenoPorte" => $rsDados['pequenoPorte'],
+//                 "medioPorte"   => $rsDados['medioPorte'],
+//                 "grandePorte"  => $rsDados['grandePorte'],
+//             );
+
+//             $cont++;
+//         }
+
+//         fecharConexaoMysql($conexao);
+//         if (isset($arrayDados))
+//             return $arrayDados;
+//         else
+//             return false;
+//     }
+// }
