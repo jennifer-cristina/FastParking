@@ -95,7 +95,7 @@ function selectCountVagaDisponiveis()
       $cont = 0;
       while ($rsDados = mysqli_fetch_assoc($result)) {
          //Cria um array com os dados do BD
-         $arrayDados[$cont] = array(
+         $arrayDados = array(
             "pequenoPorte" => $rsDados['pequenoPorte'],
             "medioPorte"   => $rsDados['medioPorte'],
             "grandePorte"  => $rsDados['grandePorte'],

@@ -169,44 +169,40 @@ function selectByIdVaga($id)
             return false;
     }
 }
-/*
-select (select count(statusVaga) from tblVaga where statusVaga = true) as 'vagasOcupadas', 
-	   (select count(statusVaga) from tblVaga where statusVaga = false) as 'vagasDisponiveis',
-       (select count(*) from tblVaga) as 'totalVagas';
-*/
 
-// function selectCountVagas()
-// {
-//     //Abre a conexão com o BD
-//     $conexao = conectarMysql();
+function selectCountVagas()
+{
+    //Abre a conexão com o BD
+    $conexao = conectarMysql();
 
-//     //script para listar o dado do BD
-//     $script = "select 
-//             (select count(statusVaga) from tblVaga where statusVaga = false and idTipoVaga=1) as 'pequenoPorte',       
-//             (select count(statusVaga) from tblVaga where statusVaga = false and idTipoVaga=2) as 'medioPorte',
-//             (select count(statusVaga) from tblVaga where statusVaga = false and idTipoVaga=3) as 'grandePorte';";
+    //script para listar o dado do BD
+    $script = "select 
+                (select count(statusVaga) from tblVaga where statusVaga = true) as 'vagasOcupadas', 
+                (select count(statusVaga) from tblVaga where statusVaga = false) as 'vagasDisponiveis',
+                (select count(statusVaga) from tblVaga where preferencial = true) as 'vagasPreferenciaisTotal',
+                (select count(statusVaga) from tblVaga where statusVaga = true && preferencial = true) as 'vagasPreferenciaisDisponiveis',
+                (select count(*) from tblVaga) as 'totalVagas';";
 
-//     //Executa o script sql no BD e guarda o retorno dos dados, se houver
-//     $result = mysqli_query($conexao, $script);
+    //Executa o script sql no BD e guarda o retorno dos dados, se houver
+    $result = mysqli_query($conexao, $script);
 
-//     //Valida se o BD retornou registros
-//     if ($result) {
-//         $cont = 0;
-//         while ($rsDados = mysqli_fetch_assoc($result)) {
-//             //Cria um array com os dados do BD
-//             $arrayDados[$cont] = array(
-//                 "pequenoPorte" => $rsDados['pequenoPorte'],
-//                 "medioPorte"   => $rsDados['medioPorte'],
-//                 "grandePorte"  => $rsDados['grandePorte'],
-//             );
+    //Valida se o BD retornou registros
+    if ($result) {
+        while ($rsDados = mysqli_fetch_assoc($result)) {
+            //Cria um array com os dados do BD
+            $arrayDados = array(
+                "vagasOcupadas"                  => $rsDados['vagasOcupadas'],
+                "vagasDisponiveis"               => $rsDados['vagasDisponiveis'],
+                "vagasPreferenciaisTotal"        => $rsDados['vagasPreferenciaisTotal'],
+                "vagasPreferenciaisDisponiveis"  => $rsDados['vagasPreferenciaisDisponiveis'],
+                "totalVagas"                     => $rsDados['totalVagas']
+            );
+        }
 
-//             $cont++;
-//         }
-
-//         fecharConexaoMysql($conexao);
-//         if (isset($arrayDados))
-//             return $arrayDados;
-//         else
-//             return false;
-//     }
-// }
+        fecharConexaoMysql($conexao);
+        if (isset($arrayDados))
+            return $arrayDados;
+        else
+            return false;
+    }
+}

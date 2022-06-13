@@ -13,8 +13,7 @@ require_once(SRC . '/model/vaga.php');
 function inserirVaga($dadosVagas)
 {
     if (!empty($dadosVagas)) {
-        if (!empty($dadosVagas['statusVaga']) && !empty($dadosVagas['preferencial']) && !empty($dadosVagas['idTipoVaga']) && !empty($dadosVagas['idBloco'])) {
-
+        if (is_numeric($dadosVagas['statusVaga']) && is_numeric($dadosVagas['preferencial']) && !empty($dadosVagas['idTipoVaga']) && !empty($dadosVagas['idBloco'])) {
 
             $arrayDados = array(
                 "statusVaga"   => $dadosVagas['statusVaga'],
@@ -128,4 +127,13 @@ function buscarVaga($id)
             'idErro'     => 4,
             'message'    => 'Não é possível buscar um registro sem informar um id válido'
         );
+}
+
+function listarQuantidadeVagas()
+{
+    $dados = selectCountVagas();
+    if(!empty($dados)){
+        return $dados;
+    }else
+        return false;
 }

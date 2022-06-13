@@ -6,7 +6,7 @@
  */
 
 require_once('vendor/autoload.php');
-$app = new \Slim\App();
+require_once('app.php');
 
 //Criando um objeto do slim chamado app, para configurar os EndPoint
 //require_once('app.php');
@@ -74,22 +74,16 @@ $app->get('/tipovaga/{id}', function ($request, $response, $args) {
     }
 });
 
-$app->get('/tipovaga/teste', function ($request, $response, $args) {
+$app->get('/tipovaga/quantidadeDisponiveis/', function ($request, $response, $args) {
     //importa do arquivo de configuração
-    echo ('endpoint certo');
-    die;
+    
     require_once('../modulo/config.php');
     //importe da controller 
-    require_once('../controller/tipoVaga.php');
+    require_once('../controller/controllerTipoVaga.php');
 
-    $dados = listarVagaDisponiveis();
-    var_dump($dados);
-    die;
 
     //Solicita os dados para a controller
     if ($dados = listarVagaDisponiveis()) {
-        var_dump($dados);
-        die;
         //realiza a conversão do array de dados em formato json
         if ($dadosJSON = createJSON($dados)) {
             //caso exista dados, retornamos o status code e enviamos os dados em json
