@@ -29,7 +29,7 @@ $app->post('/vaga', function ($request, $response, $args) {
         case 'application/json':
 
             $arrayDados = $request->getParsedBody();
-
+            
             //Chama a função da controller para inserir os dados
             $resposta = inserirVaga($arrayDados);
 

@@ -307,10 +307,6 @@ FROM tblControle
 	INNER JOIN tblTipoVaga
 		ON tblVaga.idTipoVaga = tblTipovaga.id;
 	
-
-
-
-CASE
     WHEN Quantity > 3 THEN 'The quantity is greater than 30'
     WHEN Quantity = 30 THEN 'The quantity is 30'
     ELSE 'The quantity is under 30'
