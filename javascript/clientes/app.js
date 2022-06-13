@@ -3,15 +3,11 @@
 import {openModal, closeModal} from './modal-clientes.js'
 import {readCustomers, createClient, deleteClient, updateClient, readSex} from './cliente.js'
 
-const criarOptions = ({id}) => {
+const criarOptions = ({id, nome}) => {
     const option = document.createElement('option')
-    option.innerHTML = `
-    <option>
-         ${id}
-    </option>
+    option.value = id
+    option.textContent = nome
     
-    `
-
     return option
 }
 
@@ -20,12 +16,7 @@ const carregarSexo = async () =>{
     const sexos = await readSex()
     const option = sexos.map(criarOptions)
     container.replaceChildren(...option)
-    // listaSexo.innerHTML = `
-    // <option>Selecione o sexo</option>
-    // <option>
-    //     ${)}
-    // </option>
-    // `
+    
      return option
 }
 

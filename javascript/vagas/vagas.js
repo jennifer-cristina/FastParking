@@ -2,7 +2,7 @@
 //Recebe a url da api
 
 // Inserir vagae
-const url = 'http://10.107.134.63/fastParking/FastParking/api/vaga'
+const url = 'https://fast-parking-senai.herokuapp.com/api/vaga'
 
 //ler vagaes
 const readVaga = async (id) => {
@@ -13,13 +13,13 @@ const readVaga = async (id) => {
 
 //ler vagaes
 const readBloco = async () => {
-    const urlBloco = 'http://10.107.134.63/fastParking/FastParking/api/bloco'
+    const urlBloco = 'https://fast-parking-senai.herokuapp.com/api/bloco'
     const response = await fetch(urlBloco)
     return await response.json()
 }
 
 const readTipoVaga = async () => {
-    const urlTipoVaga = 'http://10.107.134.63/fastParking/FastParking/api/tipovaga'
+    const urlTipoVaga = 'https://fast-parking-senai.herokuapp.com/api/tipovaga'
     const response = await fetch(urlTipoVaga)
     return await response.json()
 }
@@ -51,6 +51,8 @@ const deleteVaga = async (codigo) => {
 
 //atualizar vaga
 const uptadeVaga = async (vaga) => {
+
+    console.log ("teste", vaga)
     const options = {
         'method': 'POST',
         'body': JSON.stringify(vaga),

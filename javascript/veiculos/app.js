@@ -3,16 +3,12 @@
 import {openModal, closeModal} from './modal-veiculos.js'
 import {readVeiculo, createVeiculo, deleteVeiculo, uptadeVeiculo, readCor, readCliente} from './veiculo.js'
 
-const criarOptionsCor = ({id}) => {
+const criarOptionsCor = ({id, nome}) => {
     const option = document.createElement('option')
-    option.innerHTML = `
-    <option>
-         ${id}
-    </option>
-    
-    `
-
+    option.value = id
+    option.textContent = nome
     return option
+    
 }
 
 const carregarCor = async () =>{
@@ -27,19 +23,15 @@ const carregarCor = async () =>{
     // </option>
     // `
      return option
+     
 }
 
 carregarCor()
 
-const criarOptionsCliente = ({id}) => {
+const criarOptionsCliente = ({id, nome}) => {
     const option = document.createElement('option')
-    option.innerHTML = `
-    <option>
-         ${id}
-    </option>
-    
-    `
-
+    option.value = id
+    option.textContent = nome
     return option
 }
 
@@ -59,12 +51,23 @@ const carregarCliente = async () =>{
 
 carregarCliente()
 
-const createRow = ({placa, idCor, idCliente, id}) => {
+const pegarNomeClient = async (id) => {
+    const cliente = await readCliente(id)
+
+    return await cliente.nome
+}
+
+const createRow =   ({placa, idCor, idCliente, id}) => {
+
+    var nomeCliente =  pegarNomeClient(idCliente)
+
+    console.log(nomeCliente)
+    
     const row = document.createElement('tr')
     row.innerHTML = `
         <td>${placa}</td>
         <td>${idCor}</td>
-        <td>${idCliente}</td>
+        <td>${idCor}</td>
         <td>
             <button type="button" class="button green" onClick="editVeiculo(${id})">editar</button>
             <button type="button" class="button red" onClick="delVeiculo(${id})">excluir</button>
@@ -103,7 +106,7 @@ const updateTable = async () => {
     const veiculos = await readVeiculo()
 
     //Preencher a tabela com as informações
-    const rows = veiculos.map(createRow)
+    const rows = veiculos.map(await createRow)
 
     veiculoContainer.replaceChildren(...rows)
 }
@@ -115,6 +118,8 @@ const saveVeiculo = async () => {
 
     const form = document.getElementById('modal-form')
 
+
+
     // criar um json com as informações do veiculoe
     const veiculo = {
         "id": "",
@@ -123,8 +128,9 @@ const saveVeiculo = async () => {
         "idCliente": document.getElementById('responsavel').value
     }
 
+    console.log(veiculo)
+
     if(form.reportValidity()) {
-        console.log(isEdit())
         if (isEdit()) {
             veiculo.id = document.getElementById('placa').dataset.id
             console.log("uptade",veiculo)

@@ -2,7 +2,8 @@
 //Recebe a url da api
 
 // Inserir veiculoe
-const url = 'http://10.107.134.63/fastParking/FastParking/api/veiculo'
+//  = 'http://10.107.134.63/fastParking/FastParking/api/veiculo'
+const url = 'https://fast-parking-senai.herokuapp.com/api/veiculo'
 
 //ler veiculoes
 const readVeiculo = async (id='') => {
@@ -15,14 +16,16 @@ console.log( await readVeiculo())
 
 //ler veiculoes
 const readCor = async () => {
-    const urlCor = 'http://10.107.134.63/fastParking/FastParking/api/cor'
+    const urlCor = 'https://fast-parking-senai.herokuapp.com/api/cor'
     const response = await fetch(urlCor)
     return await response.json()
 }
 
-const readCliente = async () => {
-    const urlCliente = 'http://10.107.134.63/fastParking/FastParking/api/cliente'
-    const response = await fetch(urlCliente)
+
+const readCliente = async (id='') => {
+    const idCliente = id ? `/${id}` :  ''
+    const urlCliente = 'https://fast-parking-senai.herokuapp.com/api/cliente'
+    const response = await fetch(`${urlCliente}${idCliente}`)
     return await response.json()
 }
 

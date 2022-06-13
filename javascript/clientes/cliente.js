@@ -1,7 +1,7 @@
 'use strict'
 
 // Inserir Cliente
-const url = 'http://10.107.134.63/fastParking/FastParking/api/cliente'
+const url = 'https://fast-parking-senai.herokuapp.com/api/cliente'
 
 //ler clientes
 const readCustomers = async (id) => {
