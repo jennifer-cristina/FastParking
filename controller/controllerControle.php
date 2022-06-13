@@ -47,7 +47,7 @@ function buscarControle($id)
 
     if ($id != 0 && !empty($id) && is_numeric($id)) {
 
-        require_once(SRC . 'model/controle.php');
+        require_once(SRC . './model/controle.php');
 
         $dados = selectByIdControle($id);
 
@@ -62,6 +62,19 @@ function buscarControle($id)
         );
     }
 }
+
+function listarControle($placa)
+{
+    require_once(SRC . './model/controle.php');
+
+    $dados = selectAllControlePlaca($placa);
+
+    if (!empty($dados))
+        return $dados;
+    else
+        return false;
+}
+
 
 function atualizarControle($dadosControle)
 {
@@ -106,3 +119,4 @@ function atualizarControle($dadosControle)
             );
     }
 }
+

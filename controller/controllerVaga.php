@@ -13,24 +13,30 @@ require_once(SRC . '/model/vaga.php');
 function inserirVaga($dadosVagas)
 {
     if (!empty($dadosVagas)) {
-        if (!empty($dadosVagas['statusVaga']) && !empty($dadosVagas['preferencial']) && !empty($dadosVagas['idTipoVaga']) && !empty($dadosVagas['idBloco'])) {
+        if (is_numeric($dadosVagas['statusVaga']) && is_numeric($dadosVagas['preferencial']) && !empty($dadosVagas['idTipoVaga']) && !empty($dadosVagas['idBloco'])) {
 
+            if ($dadosVagas['statusVaga'] == 0 || $dadosVagas['statusVaga'] == 1 && $dadosVagas['preferencial'] == 0 || $dadosVagas['preferencial'] == 1) {
+                $arrayDados = array(
+                    "statusVaga"   => $dadosVagas['statusVaga'],
+                    "preferencial" => $dadosVagas['preferencial'],
+                    "idTipoVaga"   => $dadosVagas['idTipoVaga'],
+                    "idBloco"      => $dadosVagas['idBloco']
+                );
 
-            $arrayDados = array(
-                "statusVaga"   => $dadosVagas['statusVaga'],
-                "preferencial" => $dadosVagas['preferencial'],
-                "idTipoVaga"   => $dadosVagas['idTipoVaga'],
-                "idBloco"      => $dadosVagas['idBloco']
-            );
+                require_once(SRC . '/model/vaga.php');
 
-            require_once(SRC . '/model/vaga.php');
-
-            if (insertVaga($arrayDados)) {
-                return true;
+                if (insertVaga($arrayDados)) {
+                    return true;
+                } else {
+                    return array(
+                        'idErro'  => 1,
+                        'message' => 'Não foi possível inserir os dados no Banco de dados'
+                    );
+                }
             } else {
                 return array(
                     'idErro'  => 1,
-                    'message' => 'Não foi possível inserir os dados no Banco de dados'
+                    'message' => 'Não foi possível inserir os dados no Banco de dados, pois só recebemos 0 ou 1'
                 );
             }
         } else {

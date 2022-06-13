@@ -13,7 +13,7 @@ require_once('vendor/autoload.php');
 
 require_once('app.php');
 
-// EndPoint: requisição para listar todos os clientes
+// EndPoint: requisição para listar todos as cores 
 $app->get('/cor', function ($request, $response, $args) {
 
     require_once('../modulo/config.php');

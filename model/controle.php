@@ -104,3 +104,53 @@ function updateControle($dadosControle)
     fecharConexaoMysql($conexao);
     return $statusResposta;
 }
+
+function selectAllControlePlaca($placa)
+{
+
+    $conexao = conectarMysql();
+
+    $sql = "SELECT tblVeiculo.placa, tblControle.*, (TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H')) + (DATEDIFF(CURDATE(), tblControle.dataEntrada)*24) AS qtdeHoras,
+    CASE 
+        WHEN DATEDIFF(CURDATE(), tblControle.dataEntrada) > 1 THEN DATEDIFF(CURDATE(), tblControle.dataEntrada) * tblTipoVaga.precoDiaria
+        WHEN(TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') <= 1) THEN tblTipoVaga.precoHora
+        WHEN(TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') > 1) THEN (TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') - 1 ) * tblTipoVaga.precoAdicional + tblTipoVaga.precoHora
+    END preco
+    FROM tblVeiculo
+    INNER JOIN tblControle
+        ON tblVeiculo.id = tblControle.idVeiculo
+    INNER JOIN tblVaga
+        ON tblControle.idVaga = tblVaga.id
+    INNER JOIN tblTipoVaga
+        ON tblVaga.idTipoVaga = tblTipoVaga.id
+    WHERE tblVeiculo.placa = '". $placa ."' AND tblControle.horaSaida IS NULL AND tblControle.dataSaida IS NULL;";
+
+    $result = mysqli_query($conexao, $sql);
+
+    if ($result) {
+
+        $cont = 0;
+        while ($rsDados = mysqli_fetch_assoc($result)) {
+
+            $arrayDados[$cont] = array(
+                "id"               =>  $rsDados['id'],
+                "horaEntrada"      =>  $rsDados['horaEntrada'],
+                "horaSaida"        =>  $rsDados['horaSaida'],
+                "dataEntrada"      =>  $rsDados['dataEntrada'],
+                "dataSaida"        =>  $rsDados['dataSaida'],
+                "idVeiculo"        =>  $rsDados['idVeiculo'],
+                "idVaga"           =>  $rsDados['idVaga'],
+                "qtdeHoras"        =>  $rsDados['qtdeHoras'],
+                "preco"            =>  $rsDados['preco']
+            );
+            $cont++;
+        }
+
+        fecharConexaoMysql($conexao);
+
+        if (isset($arrayDados))
+            return $arrayDados;
+        else
+            return false;
+    }
+}
