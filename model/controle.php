@@ -83,8 +83,8 @@ function updateControle($dadosControle)
     $conexao = conectarMysql();
 
     $sql = "update tblControle set 
-                horaSaida      = 'TIME_FORMAT(NOW(), '%H:%i:%s')',  
-                dataSaida      = 'DATE_FORMAT(NOW(), '%Y-%m-%d')', 
+                horaSaida      = TIME_FORMAT(NOW(), '%H:%i:%s'),  
+                dataSaida      = DATE_FORMAT(NOW(), '%Y-%m-%d'), 
                 idVeiculo      = '" . $dadosControle['idVeiculo'] . "',
                 idVaga         = '" . $dadosControle['idVaga'] . "',
                 preco          = '" . $dadosControle['preco'] . "'
