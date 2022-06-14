@@ -102,7 +102,6 @@ $app->post('/controle/{id}', function ($request, $response, $args) {
                     // Cria um array com todos os dados comuns e do arquivo que será enviado para o servidor
                     $arrayDados = array(
                         $dadosBody,
-                        "preco" => $controle['preco'],
                         "id"    => $id
                     );
 

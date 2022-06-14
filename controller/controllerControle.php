@@ -67,7 +67,7 @@ function listarControle($placa)
 {
     require_once(SRC . './model/controle.php');
 
-    $dados = selectAllControlePlaca($placa);
+    $dados = selectControleByPlaca($placa);
 
     if (!empty($dados))
         return $dados;
@@ -81,13 +81,13 @@ function atualizarControle($dadosControle)
     //Recebe o id enviado pelo arrayDados
     $idControle = $dadosControle['id'];
 
-    $preco = $dadosControle['preco'];
-
     if (!empty($dadosControle)) {
 
         if (!empty($dadosControle[0]['horaEntrada']) && !empty($dadosControle[0]['dataEntrada']) && !empty($dadosControle[0]['idVeiculo']) && !empty($dadosControle[0]['idVaga'])) {
 
             if (!empty($idControle) && $idControle != 0 && is_numeric($idControle)) {
+
+                $controle = selectControleByIdVaga($dadosControle[0]['idVaga']);
 
                 $arrayDados = array(
                     "id"               => $idControle,
@@ -96,8 +96,8 @@ function atualizarControle($dadosControle)
                     "dataEntrada"      => $dadosControle[0]['dataEntrada'],
                     "dataSaida"        => $dadosControle[0]['dataSaida'],
                     "idVeiculo"        => $dadosControle[0]['idVeiculo'],
-                    "idVeiculo"        => $dadosControle[0]['idVeiculo'],
-                    "preco"            => $preco  
+                    "idVaga"           => $dadosControle[0]['idVaga'],
+                    "preco"            => $controle['preco']
                 );
 
                 require_once(SRC . './model/controle.php');
