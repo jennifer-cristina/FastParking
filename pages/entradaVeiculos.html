@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../javascript/telas.js" defer></script>
-    <script src="../javascript/entradaVeiculo.js/entradaVeiculo.js" defer></script>
+    <script src="../javascript/entradaVeiculo.js/app.js" defer type="module"></script>
     <link rel="stylesheet" href="../CSS/aside.css" />
     <link rel="stylesheet" href="../CSS/reset.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
@@ -22,7 +22,7 @@
     <main>
       <section class="entrada">
         <div class="acoes">
-          <form action="" class="form">
+          <form action="" id="modal-form">
 
             <div class="campos cliente">
               <div class="cadastroInformacoes">
@@ -37,7 +37,9 @@
                 <label>Placa do Veículo</label>
               </div>
               <div class="entradaDeDados">
-                <input type="text" placeholder="Placa do veículo" id="placa" list="porteVeiculo"/>
+                <select name="placa" id="placa">
+
+                </select>
               </div>
             </div>
             <div class="campos vaga">
@@ -45,8 +47,8 @@
                 <label>Vaga do veículo</label>
               </div>
               <div class="entradaDeDados">
-                <select name="vagaVeiculo" id="tamanhoVeiculo">
-                  <option value="">Selecione a vaga do veículo</option>
+                <select name="vagaVeiculo" id="vagaVeiculo">
+                  
                 </select>
               </div>
             </div>
@@ -62,7 +64,7 @@
             </div>
           </form>
           <div class="enviar">
-            <input type="submit" />
+            <input type="submit" id="enviar" />
           </div>
         </div>
 
@@ -99,14 +101,12 @@
         <table class="ultimo">
           <thead class="infoClients">
             <tr>
-              <th>Nome do Cliente</th>
               <th>Placa do veículo</th>
               <th>Data Entrada</th>
             </tr>
           </thead>
           <tbody id="clientsVeiculos" class="clientsVeiculos">
             <tr class="resultadoUltimoVeiculo">
-              <td>João Gabriel</td>
               <td>CHE-2025</td>
               <td>25/04/2022 23:00</td>
             </tr>
