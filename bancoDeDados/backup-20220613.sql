@@ -32,9 +32,9 @@ SELECT TIME_FORMAT(TIMEDIFF('21:45:00', CURTIME()), '%H') + (DATEDIFF('2022-06-1
 
 SELECT tblVeiculo.placa, tblControle.*, TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 AS qtdeHoras,
 CASE 
-	WHEN TIMESTAMPDIFF(DAY, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 > 1 THEN TIMESTAMPDIFF(DAY, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 * tblTipoVaga.precoDiaria
-	WHEN TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 <= 1 THEN tblTipoVaga.precoHora
-	WHEN TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 > 1 THEN (TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 - 1) * tblTipoVaga.precoAdicional + tblTipoVaga.precoHora
+	WHEN TIMESTAMPDIFF(DAY, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) >= 1 THEN TIMESTAMPDIFF(DAY, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) * tblTipoVaga.precoDiaria
+	WHEN (TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3) <= 1 THEN tblTipoVaga.precoHora
+	WHEN (TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3) > 1 THEN (TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 - 1) * tblTipoVaga.precoAdicional + tblTipoVaga.precoHora
 END preco
 FROM tblVeiculo
 INNER JOIN tblControle 
