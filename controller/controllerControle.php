@@ -81,6 +81,8 @@ function atualizarControle($dadosControle)
     //Recebe o id enviado pelo arrayDados
     $idControle = $dadosControle['id'];
 
+    $preco = $dadosControle['preco'];
+
     if (!empty($dadosControle)) {
 
         if (!empty($dadosControle[0]['horaEntrada']) && !empty($dadosControle[0]['dataEntrada']) && !empty($dadosControle[0]['idVeiculo']) && !empty($dadosControle[0]['idVaga'])) {
@@ -88,13 +90,14 @@ function atualizarControle($dadosControle)
             if (!empty($idControle) && $idControle != 0 && is_numeric($idControle)) {
 
                 $arrayDados = array(
-                    "id"        => $idControle,
+                    "id"               => $idControle,
                     "horaEntrada"      => $dadosControle[0]['horaEntrada'],
                     "horaSaida"        => $dadosControle[0]['horaSaida'],
                     "dataEntrada"      => $dadosControle[0]['dataEntrada'],
                     "dataSaida"        => $dadosControle[0]['dataSaida'],
                     "idVeiculo"        => $dadosControle[0]['idVeiculo'],
-                    "idVaga"           => $dadosControle[0]['idVaga']    
+                    "idVeiculo"        => $dadosControle[0]['idVeiculo'],
+                    "preco"            => $preco  
                 );
 
                 require_once(SRC . './model/controle.php');

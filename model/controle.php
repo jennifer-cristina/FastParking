@@ -88,7 +88,8 @@ function updateControle($dadosControle)
                 dataEntrada    = '" . $dadosControle['dataEntrada'] . "', 
                 dataSaida      = '" . $dadosControle['dataSaida'] . "', 
                 idVeiculo      = '" . $dadosControle['idVeiculo'] . "',
-                idVaga         = '" . $dadosControle['idVaga'] . "'
+                idVaga         = '" . $dadosControle['idVaga'] . "',
+                preco          = '" . $dadosControle['preco'] . "'
             where id           = " . $dadosControle['id'];
 
     if (mysqli_query($conexao, $sql)) {
@@ -110,11 +111,11 @@ function selectAllControlePlaca($placa)
 
     $conexao = conectarMysql();
 
-    $sql = "SELECT tblVeiculo.placa, tblControle.*, (TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H')) + (DATEDIFF(CURDATE(), tblControle.dataEntrada)*24) AS qtdeHoras,
+    $sql = "SELECT tblVeiculo.placa, tblControle.*, TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada),CURDATE()) AS qtdeHoras,
     CASE 
-        WHEN DATEDIFF(CURDATE(), tblControle.dataEntrada) > 1 THEN DATEDIFF(CURDATE(), tblControle.dataEntrada) * tblTipoVaga.precoDiaria
-        WHEN(TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') <= 1) THEN tblTipoVaga.precoHora
-        WHEN(TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') > 1) THEN (TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') - 1 ) * tblTipoVaga.precoAdicional + tblTipoVaga.precoHora
+        WHEN TIMESTAMPDIFF(DAY, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada),CURDATE()) > 1 THEN TIMESTAMPDIFF(DAY, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada),CURDATE()) * tblTipoVaga.precoDiaria
+        WHEN TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada),CURDATE()) <= 1 THEN tblTipoVaga.precoHora
+        WHEN TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada),CURDATE()) > 1 THEN (TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada),CURDATE()) - 1) * tblTipoVaga.precoAdicional + tblTipoVaga.precoHora
     END preco
     FROM tblVeiculo
     INNER JOIN tblControle

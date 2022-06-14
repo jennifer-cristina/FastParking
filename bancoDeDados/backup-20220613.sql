@@ -19,13 +19,18 @@ CREATE TABLE tblControle(
     UNIQUE INDEX(id)
 );
 
-SELECT * FROM tblControle WHERE tblControle.idVeiculo = 2;
+ALTER TABLE tblControle
+	ADD COLUMN preco DECIMAL;
+
+SELECT * FROM tblControle;
 
 SELECT DATEDIFF(CURDATE(), '2022-06-08') AS qtdeDia;
 
 SELECT DATE_FORMAT(CURDATE(), '%d/%m/%y');
 
-SELECT tblVeiculo.placa, tblControle.*, (TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H')) + (DATEDIFF(CURDATE(), tblControle.dataEntrada)*24) AS qtdeHoras,
+SELECT TIME_FORMAT(TIMEDIFF('21:45:00', CURTIME()), '%H') + (DATEDIFF('2022-06-13', CURDATE())*24) AS qtdeHoras;
+
+SELECT tblVeiculo.placa, tblControle.*, TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada),CURDATE()) AS qtdeHoras,
 CASE 
 	WHEN DATEDIFF(CURDATE(), tblControle.dataEntrada) > 1 THEN DATEDIFF(CURDATE(), tblControle.dataEntrada) * tblTipoVaga.precoDiaria
 	WHEN(TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') <= 1) THEN tblTipoVaga.precoHora
@@ -43,14 +48,8 @@ WHERE tblVeiculo.placa = '4657-ajsh' AND tblControle.horaSaida IS NULL AND tblCo
 SELECT tblControle.horaSaida, tblControle.dataSaida
 FROM tblcontrole
 WHERE tblcontrole.idVeiculo = 2 AND tblControle.dataEntrada IS NULL AND tblControle.horaSaida IS NULL AND tblControle.dataSaida IS NULL;
-
-UPDATE tblControle SET
-			dataEntrada = '2022-06-08'
-		WHERE id = 1;
         
 DESC tblControle;
-
-DROP TABLE tblControle;
 
 ALTER TABLE tblControle
 	DROP FOREIGN KEY tblcontrole_ibfk_1;

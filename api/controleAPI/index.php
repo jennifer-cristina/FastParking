@@ -92,7 +92,9 @@ $app->post('/controle/{id}', function ($request, $response, $args) {
 
             case 'application/json':
 
-                if (buscarControle($id)) {
+                $controle = buscarControle($id);
+
+                if ($controle) {
 
                     // Recebe os dados comuns enviado pelo da requisição
                     $dadosBody = $request->getParsedBody();
@@ -100,6 +102,7 @@ $app->post('/controle/{id}', function ($request, $response, $args) {
                     // Cria um array com todos os dados comuns e do arquivo que será enviado para o servidor
                     $arrayDados = array(
                         $dadosBody,
+                        "preco" => $controle['preco'],
                         "id"    => $id
                     );
 
