@@ -47,6 +47,22 @@ const carregarVeiculo = async () =>{
 carregarVeiculo()
 
 
+const saveDados = () => {
+
+    const placaPreenchida = document.getElementById('placa').value
+    const data = document.getElementById('dataEntrada').value
+    const horaEntrada = document.getElementById('horaEntrada').value
+
+
+
+    placaPreenchida = document.getElementById('placaCadastro').text
+    data= document.getElementById('horaCadastro').text
+    horaEntrada= document.getElementById('dataCadastro').text
+
+
+
+}
+
 const saveControle = async () => {
 
     const form = document.getElementById('modal-form')
@@ -85,9 +101,12 @@ const saveControle = async () => {
     
     if(form.reportValidity()) {
        createControle(controle)
+       saveDados()
     }
 }
 
+
 document.getElementById('enviar').addEventListener('click', saveControle)
+
 
 

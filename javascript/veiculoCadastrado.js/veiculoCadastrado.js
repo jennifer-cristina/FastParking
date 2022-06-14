@@ -1,18 +1,24 @@
-const url = 'https://fast-parking-senai.herokuapp.com/api/veiculo'
+const url = 'https://fast-parking-senai.herokuapp.com/api/controle'
 
-const readVaga = async(id) => {
-    const idVeiculo = id ? `/${id}` :  ''
-    const response = await fetch(`${url}${idVeiculo}`)
+const readVaga = async(placa) => {
+    const placaVeiculo = placa ? `/${placa}` :  ''
+    const response = await fetch(`${url}${placaVeiculo}`)
     return await response.json()
 }
 
-const trazerVeiculos = async () => {
-    const url = ``
-    const response = await fetch(url)
-    const data = await response.json()
-    // Retorna as chaves dos arrays de um objeto
-    return data
+const updateControle = async (controle) => {
+    
+    const options = {
+        'method': 'POST',
+        'body': JSON.stringify(controle),
+        'headers': {
+            'content-type': 'application/json'
+        }  
+    }
+    
+    const response = await fetch(`${url}/${controle.id}`, options)
+    console.log ('UPDATE', response.ok)
 }
-console.log(await readVaga())
-export {readVaga}
+
+export {readVaga, updateControle}
 

@@ -73,14 +73,12 @@ const hora = () => {
 
 }
 
-console.log(hora())
+hora()
 
 
 const horario = () => {
     const porteVeiculo = document.getElementById('dataEntrada')
     const horas = dataAtual
-
-    console.log(horario)
 
 
     porteVeiculo.innerHTML = `

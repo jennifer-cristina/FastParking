@@ -92,7 +92,7 @@ main {
     width: 100%;
     user-select: none;
     text-align: left;
-    margin-bottom: 220px;
+    /* margin-bottom: 220px; */
     /* overflow-y: scroll;
     max-height: 600px; */
 }
