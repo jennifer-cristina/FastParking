@@ -57,13 +57,13 @@ section.veiculos .tblVeiculos{
 }
 
 section.veiculos th{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-family: var(--font-family);
     
 }
 
 section.veiculos td{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: var(--font-family);
 }
 

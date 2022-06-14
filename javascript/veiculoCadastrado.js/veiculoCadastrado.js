@@ -1,4 +1,4 @@
-const url = 'https://testeleonid.herokuapp.com/clientes'
+const url = 'https://fast-parking-senai.herokuapp.com/api/veiculo'
 
 const createRow = ({ placa, cor, tipo, vaga, entrada, id }) => {
     const row = document.createElement('thread')
@@ -51,10 +51,10 @@ const readClients = async(id='') => {
 }
 
 const trazerVeiculos = async () => {
-    const url = `https://dog.ceo/api/breeds/list/all`
+    const url = ``
     const response = await fetch(url)
     const data = await response.json()
     // Retorna as chaves dos arrays de um objeto
-    return Object.keys(data.message)
+    return data
 }
 
