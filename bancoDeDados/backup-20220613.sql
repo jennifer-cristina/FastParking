@@ -30,14 +30,14 @@ SELECT DATE_FORMAT(CURDATE(), '%d/%m/%y');
 
 SELECT TIME_FORMAT(TIMEDIFF('21:45:00', CURTIME()), '%H') + (DATEDIFF('2022-06-13', CURDATE())*24) AS qtdeHoras;
 
-SELECT tblVeiculo.placa, tblControle.*, TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada),CURDATE()) AS qtdeHoras,
+SELECT tblVeiculo.placa, tblControle.*, TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 AS qtdeHoras,
 CASE 
-	WHEN DATEDIFF(CURDATE(), tblControle.dataEntrada) > 1 THEN DATEDIFF(CURDATE(), tblControle.dataEntrada) * tblTipoVaga.precoDiaria
-	WHEN(TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') <= 1) THEN tblTipoVaga.precoHora
-	WHEN(TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') > 1) THEN (TIME_FORMAT(TIMEDIFF(CURTIME(), tblControle.horaEntrada), '%H') - 1 ) * tblTipoVaga.precoAdicional + tblTipoVaga.precoHora
+	WHEN TIMESTAMPDIFF(DAY, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 > 1 THEN TIMESTAMPDIFF(DAY, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 * tblTipoVaga.precoDiaria
+	WHEN TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 <= 1 THEN tblTipoVaga.precoHora
+	WHEN TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 > 1 THEN (TIMESTAMPDIFF(HOUR, CONCAT(tblControle.dataEntrada, ' ', tblControle.horaEntrada), NOW()) - 3 - 1) * tblTipoVaga.precoAdicional + tblTipoVaga.precoHora
 END preco
 FROM tblVeiculo
-INNER JOIN tblControle
+INNER JOIN tblControle 
 	ON tblVeiculo.id = tblControle.idVeiculo
 INNER JOIN tblVaga
 	ON tblControle.idVaga = tblVaga.id
@@ -48,8 +48,20 @@ WHERE tblVeiculo.placa = '4657-ajsh' AND tblControle.horaSaida IS NULL AND tblCo
 SELECT tblControle.horaSaida, tblControle.dataSaida
 FROM tblcontrole
 WHERE tblcontrole.idVeiculo = 2 AND tblControle.dataEntrada IS NULL AND tblControle.horaSaida IS NULL AND tblControle.dataSaida IS NULL;
+
+update tblControle set 
+                horaSaida      = TIME_FORMAT(NOW(), '%H:%i:%s'),  
+                dataSaida      = DATE_FORMAT(NOW(), '%Y-%m-%d'), 
+                idVeiculo      = 2,
+                idVaga         = 19,
+                preco          = 4
+            where id           = 21;
         
 DESC tblControle;
+
+SELECT TIME_FORMAT(NOW(), '%H:%i:%s');
+
+SELECT DATE_FORMAT(NOW(), '%Y-%m-%d');
 
 ALTER TABLE tblControle
 	DROP FOREIGN KEY tblcontrole_ibfk_1;
@@ -74,8 +86,7 @@ UPDATE tblVaga SET
 
 UPDATE tblControle SET
 				horaSaida = '14:30:00',
-                dataSaida = '2022-03-06'
-		WHERE id = 3;
+                dataSaida = '2022-03-06';
                 
 insert into tblControle
                 (horaEntrada, 
