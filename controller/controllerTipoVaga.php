@@ -37,3 +37,12 @@ function buscarTipoVaga($id)
          'message'    => 'Não é possível buscar um registro sem informar um id válido'
       );
 }
+
+function listarVagaDisponiveis()
+{
+   $dados = selectCountVagaDisponiveis();
+   if (!empty($dados))
+      return $dados;
+   else
+      return false;
+}

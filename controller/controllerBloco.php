@@ -8,14 +8,11 @@
  ****************************************************************/
 
 
-   //Importe do arquivo que vai buscar os dados no BD
-   require_once(SRC . '/model/bloco.php');
+//Importe do arquivo que vai buscar os dados no BD
+require_once(SRC . '/model/bloco.php');
 
 function listarBloco()
 {
-   
- 
-
    //Chama a função que vai buscar os dados no BD
    $dados = selectAllBlocos();
 

@@ -1,19 +1,15 @@
 <?php
 
-/**
+/*********************
  * DATA: 02/06/2022
- * 
- */
-
-
-
+ * Autora: Laise
+ ********************/
 require_once('vendor/autoload.php');
-
-
 
 //Criando um objeto do slim chamado app, para configurar os EndPoint
 require_once('app.php');
 
+//endpoint que insere a vaga
 $app->post('/vaga', function ($request, $response, $args) {
 
     //importa do arquivo de configuração
@@ -50,6 +46,7 @@ $app->post('/vaga', function ($request, $response, $args) {
     }
 });
 
+//endpoint que edita a vaga por id 
 $app->post('/vaga/{id}', function ($request, $response, $args) {
 
     //importa do arquivo de configuração
@@ -93,6 +90,7 @@ $app->post('/vaga/{id}', function ($request, $response, $args) {
     }
 });
 
+//endpoint que pega todas as vagas
 $app->get('/vaga', function ($request, $response, $args) {
 
     //importa do arquivo de configuração
@@ -117,6 +115,7 @@ $app->get('/vaga', function ($request, $response, $args) {
     }
 });
 
+//endpoint que pega a vaga por id
 $app->get('/vaga/{id}', function ($request, $response, $args) {
 
     //importa do arquivo de configuração
@@ -156,6 +155,7 @@ $app->get('/vaga/{id}', function ($request, $response, $args) {
     }
 });
 
+//endpoint que exclui a vaga
 $app->delete('/vaga/{id}', function ($request, $response, $args) {
 
     //importa do arquivo de configuração
@@ -176,5 +176,30 @@ $app->delete('/vaga/{id}', function ($request, $response, $args) {
         }
     }
 });
+
+$app->get('/vaga/quantidadeVagas/', function ($request, $response, $args) {
+
+    //importa do arquivo de configuração
+    require_once('../modulo/config.php');
+    //importe da controller 
+    require_once('../controller/controllerVaga.php');
+
+    //Solicita os dados para a controller
+    if ($dados = listarQuantidadeVagas()) {
+        //realiza a conversão do array de dados em formato json
+        if ($dadosJSON = createJSON($dados)) {
+            //caso exista dados, retornamos o status code e enviamos os dados em json
+            return $response->withStatus(200)
+                ->withHeader('Content-Type', 'application/json')
+                ->write($dadosJSON);
+        }
+    } else {
+        //retorna um status code caso a solicitação dê errado
+        return $response->withStatus(404)
+            ->withHeader('Content-Type', 'application/json')
+            ->write('{"id-erro": "404", "message": "Não foi possivel encontrar registros."}');
+    }
+});
+
 
 $app->run();

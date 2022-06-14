@@ -6,16 +6,13 @@
  */
 
 require_once('vendor/autoload.php');
-
-
+require_once('app.php');
 
 //Criando um objeto do slim chamado app, para configurar os EndPoint
-require_once('app.php');
+//require_once('app.php');
 
 //endpoit para pegar todos blocos
 $app->get('/tipovaga', function ($request, $response, $args) {
-
-
     //importa do arquivo de configuração
     require_once('../modulo/config.php');
     //importe da controller de contatos, que fará a busca de dados
@@ -40,8 +37,6 @@ $app->get('/tipovaga', function ($request, $response, $args) {
 
 //endpoit para pegar o bloco por id
 $app->get('/tipovaga/{id}', function ($request, $response, $args) {
-
-    
     //importa do arquivo de configuração
     require_once('../modulo/config.php');
     //importe da controller de contatos, que fará a busca de dados
@@ -76,6 +71,31 @@ $app->get('/tipovaga/{id}', function ($request, $response, $args) {
     } else {
         //retorna um status code caso a solicitação dê errado
         return $response->withStatus(204);
+    }
+});
+
+$app->get('/tipovaga/quantidadeDisponiveis/', function ($request, $response, $args) {
+    //importa do arquivo de configuração
+    
+    require_once('../modulo/config.php');
+    //importe da controller 
+    require_once('../controller/controllerTipoVaga.php');
+
+
+    //Solicita os dados para a controller
+    if ($dados = listarVagaDisponiveis()) {
+        //realiza a conversão do array de dados em formato json
+        if ($dadosJSON = createJSON($dados)) {
+            //caso exista dados, retornamos o status code e enviamos os dados em json
+            return $response->withStatus(200)
+                ->withHeader('Content-Type', 'application/json')
+                ->write($dadosJSON);
+        }
+    } else {
+        //retorna um status code caso a solicitação dê errado
+        return $response->withStatus(404)
+            ->withHeader('Content-Type', 'application/json')
+            ->write('{"id-erro": "404", "message": "Não foi possivel encontrar registros."}');
     }
 });
 
