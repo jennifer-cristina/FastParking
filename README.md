@@ -17,6 +17,4 @@ A galeria pode ser acessada pelo link: [vitoraguiarc](https://github.com/vitorag
 - VSCODE
 - JavaScript
 
-## Screenshot
 
-![](img/img-nba.png)
