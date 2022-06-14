@@ -15,6 +15,7 @@ function inserirVaga($dadosVagas)
     if (!empty($dadosVagas)) {
         if (is_numeric($dadosVagas['statusVaga']) && is_numeric($dadosVagas['preferencial']) && !empty($dadosVagas['idTipoVaga']) && !empty($dadosVagas['idBloco'])) {
 
+
             if ($dadosVagas['statusVaga'] == 0 || $dadosVagas['statusVaga'] == 1 && $dadosVagas['preferencial'] == 0 || $dadosVagas['preferencial'] == 1) {
                 $arrayDados = array(
                     "statusVaga"   => $dadosVagas['statusVaga'],
@@ -134,4 +135,13 @@ function buscarVaga($id)
             'idErro'     => 4,
             'message'    => 'Não é possível buscar um registro sem informar um id válido'
         );
+}
+
+function listarQuantidadeVagas()
+{
+    $dados = selectCountVagas();
+    if(!empty($dados)){
+        return $dados;
+    }else
+        return false;
 }
