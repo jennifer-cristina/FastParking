@@ -67,7 +67,7 @@ const createRow =   ({placa, idCor, idCliente, id}) => {
     row.innerHTML = `
         <td>${placa}</td>
         <td>${idCor}</td>
-        <td>${idCor}</td>
+        <td>${idCliente}</td>
         <td>
             <button type="button" class="button green" onClick="editVeiculo(${id})">editar</button>
             <button type="button" class="button red" onClick="delVeiculo(${id})">excluir</button>
