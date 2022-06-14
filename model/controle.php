@@ -85,9 +85,9 @@ function updateControle($dadosControle)
     $sql = "update tblControle set 
                 horaSaida      = TIME_FORMAT(NOW(), '%H:%i:%s'),  
                 dataSaida      = DATE_FORMAT(NOW(), '%Y-%m-%d'), 
-                idVeiculo      = '" . $dadosControle['idVeiculo'] . "',
-                idVaga         = '" . $dadosControle['idVaga'] . "',
-                preco          = '" . $dadosControle['preco'] . "'
+                idVeiculo      = " . $dadosControle['idVeiculo'] . ",
+                idVaga         = " . $dadosControle['idVaga'] . ",
+                preco          = " . $dadosControle['preco'] . "
             where id           = " . $dadosControle['id'];
 
     if (mysqli_query($conexao, $sql)) {
