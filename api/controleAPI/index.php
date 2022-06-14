@@ -141,5 +141,35 @@ $app->post('/controle/{id}', function ($request, $response, $args) {
     
 });
 
+// EndPoint: requisição para listar todos os controles pela placa
+$app->get('/controle/{placa}', function ($request, $response, $args) {
+
+    $placa = $args['placa'];
+
+    require_once('../modulo/config.php');
+    require_once('../controller/controllerControle.php');
+
+    if ($dados = listarControle($placa)) {
+
+        // Realizar a conversão do array de dados em formato JSON
+        if ($dadosJSON = createJSON($dados)) {
+
+            // Caso exista dados a serem retornados, informamos o statusCOde 200 e enviamos
+            // um JSON com o todos os dados encontrados
+            return $response->withStatus(200)
+                            ->withHeader('Content-Type', 'application/json')
+                            ->write($dadosJSON);
+        }
+    } else {
+
+        // Retorna um statusCode de que significa que a requisição foi aceita, com o
+        // conteúdo de retorno
+        return $response->withStatus(404)
+                        ->withHeader('Content-Type', 'application/json')
+                        ->write('{"message": "Item não encontrado"}');
+    }
+
+});
+
 // Executa todos os EndPoints
 $app->run();
