@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../javascript/telas.js" defer></script>
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/clientes/cadastroClientes.css">
+    <link rel="stylesheet" href="../CSS/clientes/button.css">
+    <link rel="stylesheet" href="../CSS/clientes/modal-clientes.css">
+    <script src="../javascript/clientes/app.js" defer type="module"></script>
+    <title>Cadastro de Clientes</title>
+</head>
+<body>
+    <aside></aside>
+    <header>
+        <h1>Cadastro de Clientes</h1>
+    </header>
+    <main>
+        <button type="button" class="button blue" id="cadastrarCliente">Cadastrar Cliente</button>
+        <table class="titles">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>RG</th>
+                    <th>Sexo</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="clientes-container">
+            </tbody>
+        </table>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Novo Cliente</h2>
+                    <span class="modal-close" id="modalClose">&#10006;</span>
+                </header>
+                <form class="modal-form" id="modal-form" >
+                    <div class="modal-field-container">
+                        <input type="text" class="modal-field" placeholder="Nome do Cliente" id="nome" required name="nome">
+                        <input type="text" class="modal-field" placeholder="CPF do Cliente" id="cpf" required name="cpf">
+                        <input type="text" class="modal-field" placeholder="Rg do cliente" id="rg" name="rg">
+                        <!-- pattern="^\(?[0-9]{2}\)? ?[0-9]{5}-?[0-9]{4}$" -->
+                        <select name="idSexo" id="sexo" class="modal-field">
+                            
+                        </select>
+                    </div>
+                </form>
+                <footer class="modal-footer">
+                    <button class="button green" id="salvar">Salvar</button>
+                    <button class="button blue" id="cancelar">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+        
+    </main>
+    
+    
+</body>
+</html>

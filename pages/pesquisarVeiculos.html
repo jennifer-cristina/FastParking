@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="../javascript/telas.js" defer></script>
-    <script src="../veiculoCadastrado.js/veiculoCadastrado.js" defer></script>
+    <script src="../javascript/veiculoCadastrado.js/app.js" defer type="module"></script>
     <link rel="stylesheet" href="../CSS/aside.css" />
     <link rel="stylesheet" href="../CSS/reset.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
@@ -22,71 +22,38 @@
         <input type="text" name="" id="pesquisarPlaca" placeholder="Pesquisar Placa"/>
       </div>
       <section class="veiculos">
+        <form action="">
+
+        
         <table class="tblVeiculos" id="tblVeiculos">
-          <thead id="veiculoCadastrado">
+          <thead >
             <tr>
-              <th>Placa</th>
-              <th>Cor</th>
-              <th>Tipo</th>
+              <th>Hora Entrada</th>
+              <th>Data Entrada</th>
+              <th>Veículo</th>
               <th>Vaga</th>
-              <th>Entrada</th>
+              <th>Preço</th>
             </tr>
+            <tbody id="veiculoCadastrado">
+                
+            </tbody>
           </thead>
-          <tbody>
+          <!-- <tbody>
             <tr>
               <td>CHR-8888</td>
               <td>Amarelo</td>
               <td>Grande</td>
               <td>A8</td>
               <td>25/05/2002 16:00</td>
+              <td>R$15,00</td>
               <td>
                 <button type="button" class="finalizar">Finalizar</button>
               </td>
-            </tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th>Placa</th>
-              <th>Cor</th>
-              <th>Tipo</th>
-              <th>Vaga</th>
-              <th>Entrada</th>
-            </tr>
-          </thead>
-          <tbody id="veiculoCadastrado">
-            <tr>
-              <td>CHR-8888</td>
-              <td>Amarelo</td>
-              <td>Grande</td>
-              <td>A8</td>
-              <td>25/05/2002 16:00</td>
-              <td>
-                <button type="button" class="finalizar">Finalizar</button>
-              </td>
-            </tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th>Placa</th>
-              <th>Cor</th>
-              <th>Tipo</th>
-              <th>Vaga</th>
-              <th>Entrada</th>
-            </tr>
-          </thead>
-          <tbody id="veiculoCadastrado">
-            <tr>
-              <td>CHR-8888</td>
-              <td>Amarelo</td>
-              <td>Grande</td>
-              <td>A8</td>
-              <td>25/05/2002 16:00</td>
-              <td>
-                <button type="button" class="finalizar">Finalizar</button>
-              </td>
-            </tr>
-          </tbody>
+            </tr> --> 
+          <!-- </tbody> -->
+          
         </table>
+      </form>
       </section>
     </main>
   </body>

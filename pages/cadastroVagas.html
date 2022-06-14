@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../javascript/telas.js" defer></script>
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/clientes/cadastroVagas.css">
+    <link rel="stylesheet" href="../CSS/clientes/button.css">
+    <link rel="stylesheet" href="../CSS/clientes/modal-clientes.css">
+    <script src="../javascript/vagas/app.js" defer type="module"></script>
+    <title>Cadastro de Vagas</title>
+</head>
+<body>
+    <aside></aside>
+    <header>
+        <h1>Cadastro de Vagas</h1>
+    </header>
+    <main>
+       
+        <button type="button" class="button blue" id="cadastrarVaga">Cadastrar Vaga</button>
+        <table class="titles">
+            <thead>
+                <tr>
+                    <th>N° Vaga</th>
+                    <th>Status Vaga</th>
+                    <th>Preferencial</th>
+                    <th>Tipo</th>
+                    <th>Bloco</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="vagas-container">
+
+            </tbody>
+        </table>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Nova Vaga</h2>
+                    <span class="modal-close" id="modalClose">&#10006;</span>
+                </header>
+                <form class="modal-form" id="modal-form">
+                    <div class="modal-field-container">
+
+                        <div class="campos-perguntas">Vaga Preenchida:
+                            <select name="statusvaga" id="statusvaga" class="modal-field">
+                                <option value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+                        
+                        <div class="campos-perguntas">Vaga Preferencial:
+                            <select name="preferencial" id="preferencial" class="modal-field">
+                                <option value="0">Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </div>
+                        
+                        <select name="tipo" id="tipo" class="modal-field">
+                            
+                        </select>
+                        
+                        <select name="bloco" id="bloco" class="modal-field">
+                            
+                        </select>
+            
+                    </div>
+                </form>
+                <footer class="modal-footer">
+                    <button class="button green" id="salvar">Salvar</button>
+                    <button class="button blue" id="cancelar">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+
+        <!-- <div class="exibir">
+
+            <div class="container-bloco">
+                <div class="bloco">
+                    <h2>Total</h2>
+                </div>
+    
+                <div class="bloco">
+                    <h2>A1</h2>
+                </div>
+    
+                <div class="bloco">
+                    <h2>B2</h2>
+                </div>
+    
+                <div class="bloco">
+                    <h2>C3</h2>
+                </div>
+                
+            </div>
+    
+            <div class="container-capacidade">
+    
+                <div class="capacidade">
+                    <h2 class="text-capacidade">
+                        60 VAGAS (TOTAL)
+                    </h2>
+                </div>
+    
+                <div class="capacidade">
+                    <h2 class="text-capacidade">
+                        20 VAGAS DISPONIVEIS
+                    </h2>
+                </div>
+    
+                <div class="capacidade">
+                    <h2 class="text-capacidade">
+                        40 VAGAS OCUPADAS
+                    </h2>
+                </div>
+    
+            </div>
+
+        </div> -->
+        
+       
+    </main>
+
+
+    
+    
+</body>
+</html>

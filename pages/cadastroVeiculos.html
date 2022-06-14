@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../javascript/telas.js" defer></script>
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/clientes/cadastroClientes.css">
+    <link rel="stylesheet" href="../CSS/clientes/button.css">
+    <link rel="stylesheet" href="../CSS/clientes/modal-clientes.css">
+    <script src="../javascript/veiculos/app.js" defer type="module"></script>
+    <title>Cadastro de Veículos</title>
+</head>
+<body>
+    <aside></aside>
+    <header>
+        <h1>Cadastro de Veículos</h1>
+    </header>
+    <main>
+
+        <button type="button" class="button blue" id="cadastrarVeiculo">Cadastrar Veículo</button>
+        <table class="titles">
+            <thead>
+                <tr>
+                    <th>Placa</th>
+                    <th>Cor</th>
+                    <th>Responsável</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody id="veiculos-container">
+            </tbody>
+        </table>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Novo Veículo</h2>
+                    <span class="modal-close" id="modalClose">&#10006;</span>
+                </header>
+                <form class="modal-form" id="modal-form">
+                    <div class="modal-field-container">
+
+                        <input type="text" class="modal-field" placeholder="Placa do Veículo" id="placa" required>
+                       
+                        <select name="cor" id="cor" class="modal-field">
+
+                        </select>
+                        
+                        <select name="responsavel" id="responsavel" class="modal-field">
+
+                        </select>
+                    
+                    </div>
+                </form>
+                <footer class="modal-footer">
+                    <button class="button green" id="salvar">Salvar</button>
+                    <button class="button blue" id="cancelar">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+        
+    </main>
+    
+    
+</body>
+</html>

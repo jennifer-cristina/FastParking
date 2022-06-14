@@ -1,0 +1,39 @@
+:root {
+    --cor-Principal: #003C8F;
+    --cor-Secundaria: #1565C0;
+    --amarelo: #FFAB40;
+    font-family: 'Poppins', sans-serif;
+} 
+
+.button{
+    border-style: none;
+    height: 40px;
+    padding: 6px 12px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: box-shadow .6s ease;
+}
+
+.button.blue{
+    background-color: var(--amarelo);
+    color: #fff;
+    font-weight: bold;
+}
+
+button.green{
+    background-color: #13CE66;
+    color: #fff;
+    font-weight: bold;
+}
+
+button.red{
+    background-color: #FF4949;
+    color: #fff;
+    font-weight: bold;
+}
+
+.button:hover{
+    box-shadow: inset 200px 0 0 #00000055;
+}

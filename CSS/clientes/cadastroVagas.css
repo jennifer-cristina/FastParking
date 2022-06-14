@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --cor-Principal: #003C8F;
+    --cor-Secundaria: #1565C0;
+    --amarelo: #FFAB40;
+    font-family: 'Poppins', sans-serif;
+} 
+
+
+/*ASIDE*/
+aside{
+    background-color: var(--cor-Principal);
+    grid-area: aside;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.menu {
+    margin: auto;
+}
+
+aside .menu ul li{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 50px;
+}
+
+aside .menu ul{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: flex-start;
+    gap: 20px;
+    justify-content: center;
+    
+}
+
+li img{
+    height: 50px;
+    width: 50px;
+}
+
+.logo img{
+    width: 180px;
+}
+
+/*BODY*/
+body{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-auto-columns: 200px 1fr;
+    grid-auto-rows: 130px 1fr;
+    grid-template-areas: 
+        "aside header"
+        "aside main"
+    ;
+}
+
+/*HEADER*/
+header{
+    background-color: var(--cor-Principal);
+    grid-area: header;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*MAIN*/
+main {
+    grid-area: main;  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 85vw;
+    margin: 5vh auto;
+    padding: 50px; 
+    gap: 20px;
+    
+        
+}
+
+.titles{
+    width: 100%;
+    user-select: none;
+    text-align: left;
+    /* margin-bottom: 220px; */
+    /* overflow-y: scroll;
+    max-height: 600px; */
+}
+
+.titles th{
+    height: 50px;
+    background-color: var(--cor-Secundaria);
+    padding-left: 20px;
+    font-size: 1.2rem;    
+}
+.titles td{
+    height: 50px;
+    padding-left: 20px;
+}
+
+.titles th:last-child,
+.titles td:last-child{
+    padding: 0;
+    min-width: 80px;
+    text-align: center;
+}
+
+/*EXIBIR*/
+.exibir {
+    margin-left: 20%;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*CONTAINER BLOCOS*/
+
+.container-bloco {
+    width: 600px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+    gap: 15px;
+}
+
+.bloco {
+    background-color: var(--amarelo);
+    cursor: pointer;
+    width: 120px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 150px;
+}
+
+.bloco:hover {
+    background-color: var(--cor-Principal);
+}
+
+/*CONTAINER CAPACIDADE*/
+
+.container-capacidade {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    gap: 15px;
+}
+
+.capacidade {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    
+
+.text-capacidade {
+    width: 280px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

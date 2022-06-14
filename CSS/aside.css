@@ -8,6 +8,7 @@
   }
 
 aside{
+
     background-color: var(--cor-Principal);
     grid-area: aside;
     display: flex;
