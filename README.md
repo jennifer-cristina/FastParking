@@ -9,7 +9,10 @@ Realizar o desenvolvimento de um website que composto de php, javascript e consu
 
 A galeria pode ser acessada pelo link: [vitoraguiarc](https://github.com/vitoraguiarc/fast-parking)
 
+
 ## Tecnológias
+
+
 
 - PHP
 - HTML5
@@ -17,6 +20,10 @@ A galeria pode ser acessada pelo link: [vitoraguiarc](https://github.com/vitorag
 - VSCODE
 - JavaScript
 
+
 ## Screenshot
 
 ![](img/img-nba.png)
+
+
+
