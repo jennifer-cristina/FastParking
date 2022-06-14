@@ -83,7 +83,7 @@ function atualizarControle($dadosControle)
 
     if (!empty($dadosControle)) {
 
-        if (!empty($dadosControle[0]['horaEntrada']) && !empty($dadosControle[0]['dataEntrada']) && !empty($dadosControle[0]['idVeiculo']) && !empty($dadosControle[0]['idVaga'])) {
+        if (!empty($dadosControle[0]['idVeiculo']) && !empty($dadosControle[0]['idVaga'])) {
 
             if (!empty($idControle) && $idControle != 0 && is_numeric($idControle)) {
 
