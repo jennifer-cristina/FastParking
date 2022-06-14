@@ -39,26 +39,60 @@ const dataAtual = () => {
     var dia = String(data.getDate()).padStart(2, '0');
     var mes = String(data.getMonth() + 1).padStart(2, '0');
     var ano = data.getFullYear();
-    var horas = data.getHours();
-    var minutos = data.getMinutes();
-    var dataAtual = dia + '/' + mes + '/' + ano + ' ás ' + horas + ':' + minutos ;
+    
+    var dataAtual = dia + '/' + mes + '/' + ano ;
 
     return dataAtual
 }
+
+const horaAtual = () => {
+
+    var hora = new Date();
+
+    var horas = hora.getHours();
+    var minutos = hora.getMinutes();
+
+    var horaAgora = horas + ':' + minutos
+
+    return horaAgora
+
+}
+
+const hora = () => {
+    const horaControle = document.getElementById('horaEntrada')
+    const horas = horaAtual
+    
+    horaControle.innerHTML = `
+    <option>
+        ${horas(`</option>${horas}<option>`)}
+    </option>
+    `
+    horaControle.value = horas
+
+    return horaControle
+
+}
+
+console.log(hora())
 
 
 const horario = () => {
     const porteVeiculo = document.getElementById('dataEntrada')
     const horas = dataAtual
 
+    console.log(horario)
+
 
     porteVeiculo.innerHTML = `
-        <option>Selecione a data</option>
         <option>
             ${horas(`</option>${horas}<option>`)}
         </option>
         `
+
+    porteVeiculo.value = horas
+
     return porteVeiculo
+
 }
 
 horario()

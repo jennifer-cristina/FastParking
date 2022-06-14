@@ -51,17 +51,37 @@ const saveControle = async () => {
 
     const form = document.getElementById('modal-form')
 
+    const porteVeiculo = document.getElementById('dataEntrada').value
+
+    const horaEntrada = document.getElementById('horaEntrada').value
+
+    console.log(porteVeiculo)
+
+    console.log(horaEntrada);
+
+    function dateToEN(date) {   
+        return date.split('/').reverse().join('-');
+    }
+    
+    const dataEN = dateToEN(porteVeiculo)
+
+   
+
+    
+
     // criar um json com as informações do cliente
     const controle = 
     {
         "id": '',
-        "horaEntrada": '22:10',
+        "horaEntrada": horaEntrada,
         "horaSaida": '',
-        "dataEntrada": '2022/06/13',
+        "dataEntrada": dataEN,
         "dataSaida": '',
         "idVeiculo": document.getElementById('placa').value,
         "idVaga": document.getElementById('vagaVeiculo').value
     }
+
+    console.log(controle);
     
     if(form.reportValidity()) {
        createControle(controle)
