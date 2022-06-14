@@ -90,6 +90,8 @@ function updateControle($dadosControle)
                 preco          = " . $dadosControle['preco'] . "
             where id           = " . $dadosControle['id'];
 
+    echo($sql);
+
     if (mysqli_query($conexao, $sql)) {
 
         if (mysqli_affected_rows($conexao)) {
