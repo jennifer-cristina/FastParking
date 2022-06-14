@@ -89,6 +89,8 @@ function atualizarControle($dadosControle)
 
                 $controle = selectControleByIdVaga($dadosControle[0]['idVaga']);
 
+                echo($controle);
+
                 $arrayDados = array(
                     "id"               => $idControle,
                     "horaEntrada"      => $dadosControle[0]['horaEntrada'],
