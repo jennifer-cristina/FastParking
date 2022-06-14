@@ -88,8 +88,6 @@ function atualizarControle($dadosControle)
             if (!empty($idControle) && $idControle != 0 && is_numeric($idControle)) {
 
                 $controle = selectControleByIdVaga($dadosControle[0]['idVaga']);
-
-                var_dump($controle);
                 
                 $arrayDados = array(
                     "id"               => $idControle,
@@ -99,7 +97,7 @@ function atualizarControle($dadosControle)
                     "dataSaida"        => $dadosControle[0]['dataSaida'],
                     "idVeiculo"        => $dadosControle[0]['idVeiculo'],
                     "idVaga"           => $dadosControle[0]['idVaga'],
-                    "preco"            => $controle['preco']
+                    "preco"            => $controle[0]['preco']
                 );
 
                 require_once(SRC . './model/controle.php');
